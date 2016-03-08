@@ -10,7 +10,7 @@ namespace LightSwitchApplication
     {
         partial void BancoCuenta_Compute(ref string result)
         {
-            result = this.Banco.Sigla + "-" + this.Nro;
+            result = string.Format("{0} - {1} - {2}", this.Banco, this.Nombre, this.Moneda);
         }
 
         partial void Nombre_Changed()

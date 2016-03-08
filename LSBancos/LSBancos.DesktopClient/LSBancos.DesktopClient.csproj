@@ -268,6 +268,18 @@
     <Compile Include="Screens\BancosLista.lsml.cs">
       <DependentUpon>BancosLista.lsml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\BeneficiarioNuevo.lsml.cs">
+      <DependentUpon>BeneficiarioNuevo.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\BeneficiariosLista.lsml.cs">
+      <DependentUpon>BeneficiariosLista.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GiradoresLista.lsml.cs">
+      <DependentUpon>GiradoresLista.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GiradorNuevo.lsml.cs">
+      <DependentUpon>GiradorNuevo.lsml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\MonedaNueva.lsml.cs">
       <DependentUpon>MonedaNueva.lsml</DependentUpon>
     </Compile>
@@ -298,6 +310,10 @@
     <LightSwitchModel Include="Screens\BancoNuevo.lsml" />
     <LightSwitchModel Include="Screens\MonedasLista.lsml" />
     <LightSwitchModel Include="Screens\MonedaNueva.lsml" />
+    <LightSwitchModel Include="Screens\BeneficiariosLista.lsml" />
+    <LightSwitchModel Include="Screens\BeneficiarioNuevo.lsml" />
+    <LightSwitchModel Include="Screens\GiradoresLista.lsml" />
+    <LightSwitchModel Include="Screens\GiradorNuevo.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

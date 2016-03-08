@@ -252,6 +252,15 @@
     <LightSwitchModel Include="DataSources\ApplicationData\MonedasAlfa.lsml">
       <DependentUpon>Monedas.lsml</DependentUpon>
     </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\BeneficiariosAlfa.lsml">
+      <DependentUpon>Beneficiarios.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\GiradoresAlfa.lsml">
+      <DependentUpon>Giradores.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\ChequesAlfa.lsml">
+      <DependentUpon>Cheques.lsml</DependentUpon>
+    </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

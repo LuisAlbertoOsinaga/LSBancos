@@ -10,7 +10,7 @@ namespace LightSwitchApplication
     {
         partial void CuentaBancoCheque_Compute(ref string result)
         {
-            result = this.CuentaBanco.BancoCuenta + "-" + this.Nro;
+            result = string.Format("{0} - {1}", this.CuentaBanco, this.Nro);
         }
     }
 }

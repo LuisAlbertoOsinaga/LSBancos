@@ -47,6 +47,18 @@
     <ApplicationCommand
       Name="ScreenCommandShowMonedaNueva"
       Target="!module/Methods[ShowMonedaNueva]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowBeneficiariosLista"
+      Target="!module/Methods[ShowBeneficiariosLista]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowBeneficiarioNuevo"
+      Target="!module/Methods[ShowBeneficiarioNuevo]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowGiradoresLista"
+      Target="!module/Methods[ShowGiradoresLista]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowGiradorNuevo"
+      Target="!module/Methods[ShowGiradorNuevo]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -56,6 +68,12 @@
         <DisplayName
           Value="Listas" />
       </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="BeneficiariosLista"
+        Command="!module/Commands[ScreenCommandShowBeneficiariosLista]" />
+      <ApplicationNavigationLink
+        Name="GiradoresLista"
+        Command="!module/Commands[ScreenCommandShowGiradoresLista]" />
       <ApplicationNavigationLink
         Name="BancosLista"
         Command="!module/Commands[ScreenCommandShowBancosLista]" />

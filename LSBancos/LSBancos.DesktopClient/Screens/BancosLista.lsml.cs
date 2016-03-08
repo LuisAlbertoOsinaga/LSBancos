@@ -37,7 +37,15 @@ namespace LightSwitchApplication
                                                                             Bancos.SelectedItem.Nombre), 
                                                                         "CONFIRMACION", MessageBoxOption.YesNo);
             if (result == MessageBoxResult.Yes)
-                Bancos.SelectedItem.Delete(); 
+            {
+                if (Bancos.SelectedItem.Details.EntityState == EntityState.Added)
+                {
+                    Bancos.RemoveSelected();
+                    this.Refresh();
+                }
+                else
+                    Bancos.SelectedItem.Delete();
+            }
         }
 
         partial void CuentasDeleteSelected_CanExecute(ref bool result)

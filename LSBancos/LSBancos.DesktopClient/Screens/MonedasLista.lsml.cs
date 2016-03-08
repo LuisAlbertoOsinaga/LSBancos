@@ -37,7 +37,15 @@ namespace LightSwitchApplication
                                                                             Monedas.SelectedItem.Nombre),
                                                                         "CONFIRMACION", MessageBoxOption.YesNo);
             if (result == MessageBoxResult.Yes)
-                Monedas.SelectedItem.Delete();
+            {
+                if (Monedas.SelectedItem.Details.EntityState == EntityState.Added)
+                {
+                    Monedas.RemoveSelected();
+                    this.Refresh();
+                }
+                else
+                    Monedas.SelectedItem.Delete();
+            }
         }
     }
 }
