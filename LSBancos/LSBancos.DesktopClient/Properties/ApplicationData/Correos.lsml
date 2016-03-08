@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.LSBancos.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Correo" />
+      <SummaryProperty
+        Property="Correo/Properties[RolDestinatarioDireccion]" />
+    </EntityType.Attributes>
+    <EntityType.Properties>
+      <KeyProperty>
+        <KeyProperty.Attributes>
+          <Proxy
+            Target="ServiceInterface:Correo/Properties[Id]" />
+          <Hidden />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:Correo/Properties[RolDestinatarioDireccion]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+</Application>

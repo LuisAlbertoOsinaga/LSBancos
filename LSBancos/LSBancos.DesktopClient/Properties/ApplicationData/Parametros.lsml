@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.LSBancos.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Parametro" />
+      <DisplayName
+        Value="Parámetro" />
+      <SummaryProperty
+        Property="Parametro/Properties[CategoriaClaveValor]" />
+    </EntityType.Attributes>
+    <EntityType.Properties>
+      <KeyProperty>
+        <KeyProperty.Attributes>
+          <Proxy
+            Target="ServiceInterface:Parametro/Properties[Id]" />
+          <Hidden />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Proxy
+            Target="ServiceInterface:Parametro/Properties[Categoria]" />
+          <DisplayName
+            Value="Categoría" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:Parametro/Properties[CategoriaClaveValor]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+</Application>
