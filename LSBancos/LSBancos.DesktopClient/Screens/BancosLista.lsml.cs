@@ -39,5 +39,30 @@ namespace LightSwitchApplication
             if (result == MessageBoxResult.Yes)
                 Bancos.SelectedItem.Delete(); 
         }
+
+        partial void CuentasDeleteSelected_CanExecute(ref bool result)
+        {
+            // Write your code here.
+
+        }
+
+        partial void CuentasDeleteSelected_Execute()
+        {
+            MessageBoxResult result = this.ShowMessageBox(string.Format("Desea eliminar la Cuenta '{0} - {1} - {2}' ?",
+                                                                            CuentaBancos.SelectedItem.Banco,
+                                                                            CuentaBancos.SelectedItem.Nombre,
+                                                                            CuentaBancos.SelectedItem.Moneda),
+                                                                        "CONFIRMACION", MessageBoxOption.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                if (CuentaBancos.SelectedItem.Details.EntityState == EntityState.Added)
+                {
+                    CuentaBancos.RemoveSelected();
+                    this.Refresh();
+                }
+                else
+                    CuentaBancos.SelectedItem.Delete();
+            }
+        }
     }
 }

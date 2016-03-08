@@ -42,7 +42,6 @@
           <Required />
           <MaxLength
             Value="255" />
-          <IncludeInUniqueIndex />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -51,6 +50,7 @@
         <EntityProperty.Attributes>
           <MaxLength
             Value="255" />
+          <IncludeInUniqueIndex />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -65,7 +65,11 @@
         Name="Moneda"
         Association="CuentaBanco_Moneda"
         FromEnd="CuentaBanco"
-        ToEnd="Moneda" />
+        ToEnd="Moneda">
+        <NavigationProperty.Attributes>
+          <IncludeInUniqueIndex />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
       <NavigationProperty
         Name="Cheques"
         Association="Cheque_CuentaBanco"

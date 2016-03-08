@@ -54,7 +54,7 @@
       DefaultItem="!module/NavigationItems[Tasks]/Children[BancosLista]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
-          Value="Definiciones" />
+          Value="Listas" />
       </ApplicationNavigationGroup.Attributes>
       <ApplicationNavigationLink
         Name="BancosLista"

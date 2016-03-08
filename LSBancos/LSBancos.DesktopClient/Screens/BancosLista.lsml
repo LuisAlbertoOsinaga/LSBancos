@@ -279,17 +279,40 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
-                    Name="Nro"
-                    Kind="Value"
-                    DataType=":String">
+                    Name="Banco"
+                    Kind="Details"
+                    DataType="Banco"
+                    View="Microsoft.LightSwitch.RichClient:Summary">
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="CuentaBanco/Properties[Nro]" />
+                            Member="CuentaBanco/Properties[Banco]" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[WidthSizingMode]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Characters"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:Summary/Properties[Characters]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="6"
+                              ResultType=":Int32" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
                   </ContentItem>
                   <ContentItem
                     Name="Nombre2"
@@ -326,11 +349,46 @@
                         </ScreenExpressionTree>
                       </ContentItem.DataSource>
                     </ContentItem>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[WidthSizingMode]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Characters"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:DetailsAutoCompleteBox/Properties[Characters]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="6"
+                              ResultType=":Int32" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Nro"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="CuentaBanco/Properties[Nro]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
                   </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
-                    Name="CuentaBancos_AddAndEditNew"
+                    Name="CuentaBancos_AddNew"
                     Kind="Command">
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
@@ -338,40 +396,50 @@
                           <MemberExpression
                             Member="BancosLista/Properties[CuentaBancos]" />
                           <CallExpression
-                            Target="AddAndEditNew" />
+                            Target="AddNew" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
                   <ContentItem
-                    Name="CuentaBancos_EditSelected"
+                    Name="CuentasDeleteSelected"
                     Kind="Command">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Delete" />
+                    </ContentItem.Attributes>
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
-                          <MemberExpression
-                            Member="BancosLista/Properties[CuentaBancos]" />
                           <CallExpression
-                            Target="EditSelected" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="CuentaBancos_DeleteSelected"
-                    Kind="Command">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="BancosLista/Properties[CuentaBancos]" />
-                          <CallExpression
-                            Target="DeleteSelected" />
+                            Target="BancosLista/Methods[CuentasDeleteSelected]" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
                 </ContentItem.CommandItems>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:DataGrid/Properties[AutoSizeColumns]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="True"
+                          ResultType=":Boolean" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:DataGrid/Properties[ShowVirtualRow]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="False"
+                          ResultType=":Boolean" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
               </ContentItem>
               <ContentItem.PropertySources>
                 <ControlPropertySource
@@ -481,6 +549,13 @@
             MethodName="DeleteSelected" />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod
+        Name="CuentasDeleteSelected">
+        <ScreenMethod.Attributes>
+          <BuiltInMethodOverride
+            MethodName="DeleteSelected" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
@@ -514,6 +589,9 @@
       </ScreenCollectionProperty>
       <ScreenCollectionProperty
         Name="CuentaBancos"
+        DisablePaging="True"
+        DisableSearch="True"
+        DisableSorting="True"
         PageSize="45"
         PropertyType="CollectionView$CuentaBanco">
         <ScreenCollectionProperty.Query>

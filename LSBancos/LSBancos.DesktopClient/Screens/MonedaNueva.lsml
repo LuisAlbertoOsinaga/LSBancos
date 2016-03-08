@@ -58,6 +58,25 @@
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
             </ContentItem>
+            <ContentItem
+              Name="Base"
+              Kind="Value"
+              DataType=":Boolean?">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="Base?" />
+                <Description
+                  Value="Es la moneda base del sistema?" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="Moneda/Properties[Base]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
             <ContentItem.PropertySources>
               <ControlPropertySource
                 Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">

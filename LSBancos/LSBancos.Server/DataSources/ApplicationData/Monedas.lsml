@@ -46,6 +46,13 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
+        Name="Base"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="Info"
         PropertyType=":String?">
         <EntityProperty.Attributes>

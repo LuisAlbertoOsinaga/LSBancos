@@ -12,5 +12,11 @@ namespace LightSwitchApplication
         {
             result = this.Banco.Sigla + "-" + this.Nro;
         }
+
+        partial void Nombre_Changed()
+        {
+            if (!string.IsNullOrEmpty(this.Nombre))
+                this.Nombre = this.Nombre.Trim().ToUpper();
+        }
     }
 }
