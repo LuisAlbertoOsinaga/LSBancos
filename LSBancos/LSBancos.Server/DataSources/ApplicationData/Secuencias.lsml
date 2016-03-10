@@ -71,6 +71,13 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
+        Name="Digitos"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="Info"
         PropertyType=":String?">
         <EntityProperty.Attributes>

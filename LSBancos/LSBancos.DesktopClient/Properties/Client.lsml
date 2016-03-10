@@ -59,8 +59,21 @@
     <ApplicationCommand
       Name="ScreenCommandShowGiradorNuevo"
       Target="!module/Methods[ShowGiradorNuevo]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowChequesSolicitud"
+      Target="!module/Methods[ShowChequesSolicitud]" />
   </Application.Commands>
   <Application.NavigationItems>
+    <ApplicationNavigationGroup
+      Name="group">
+      <ApplicationNavigationGroup.Attributes>
+        <DisplayName
+          Value="Cheques" />
+      </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="link"
+        Command="!module/Commands[ScreenCommandShowChequesSolicitud]" />
+    </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Tasks"
       DefaultItem="!module/NavigationItems[Tasks]/Children[BancosLista]">
