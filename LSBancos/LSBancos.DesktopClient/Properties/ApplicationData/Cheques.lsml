@@ -9,7 +9,7 @@
       <Proxy
         Target="ServiceInterface:Cheque" />
       <SummaryProperty
-        Property="Cheque/Properties[CuentaBancoCheque]" />
+        Property="Cheque/Properties[CuentaBancoChequeComp]" />
     </EntityType.Attributes>
     <EntityType.Properties>
       <KeyProperty>
@@ -39,7 +39,7 @@
         <EntityProperty.Attributes>
           <Computed />
           <Proxy
-            Target="LightSwitchServiceApplication:Cheque/Properties[CuentaBancoCheque]" />
+            Target="LightSwitchServiceApplication:Cheque/Properties[CuentaBancoChequeComp]" />
         </EntityProperty.Attributes>
       </EntityProperty>
     </EntityType.Properties>

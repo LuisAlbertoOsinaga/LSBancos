@@ -26,31 +26,35 @@
           <NotSearchable />
         </KeyProperty.Attributes>
       </KeyProperty>
+      <EntityProperty
+        Name="BancoCuenta"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <IncludeInUniqueIndex />
+        </EntityProperty.Attributes>
+      </EntityProperty>
       <NavigationProperty
         Name="Banco"
         Association="CuentaBanco_Banco"
         FromEnd="CuentaBanco"
-        ToEnd="Banco">
-        <NavigationProperty.Attributes>
-          <IncludeInUniqueIndex />
-        </NavigationProperty.Attributes>
-      </NavigationProperty>
+        ToEnd="Banco" />
       <EntityProperty
         Name="Nro"
-        PropertyType=":String">
+        PropertyType=":String?">
         <EntityProperty.Attributes>
-          <Required />
           <MaxLength
             Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
         Name="Nombre"
-        PropertyType=":String?">
+        PropertyType=":String">
         <EntityProperty.Attributes>
           <MaxLength
             Value="255" />
-          <IncludeInUniqueIndex />
+          <Required />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -65,23 +69,17 @@
         Name="Moneda"
         Association="CuentaBanco_Moneda"
         FromEnd="CuentaBanco"
-        ToEnd="Moneda">
-        <NavigationProperty.Attributes>
-          <IncludeInUniqueIndex />
-        </NavigationProperty.Attributes>
-      </NavigationProperty>
+        ToEnd="Moneda" />
       <NavigationProperty
         Name="Cheques"
         Association="Cheque_CuentaBanco"
         FromEnd="CuentaBanco"
         ToEnd="Cheque" />
-      <EntityProperty
-        Name="BancoCuenta"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Computed />
-        </EntityProperty.Attributes>
-      </EntityProperty>
+      <NavigationProperty
+        Name="Giradores"
+        Association="Girador_CuentaBanco"
+        FromEnd="CuentaBanco"
+        ToEnd="Girador" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -235,6 +233,16 @@
         Name="CuentaBanco"
         EntitySet="CuentaBancos" />
     </AssociationSet>
+    <AssociationSet
+      Name="Girador_CuentaBancoes"
+      Association="Girador_CuentaBanco">
+      <AssociationSetEnd
+        Name="Girador"
+        EntitySet="Giradores" />
+      <AssociationSetEnd
+        Name="CuentaBanco"
+        EntitySet="CuentaBancos" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -275,6 +283,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Girador_CuentaBancoes">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Girador_CuentaBancoes" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Girador_CuentaBancoes]/Members[Girador]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Girador_CuentaBanco" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Girador_CuentaBancoes]/Members[CuentaBanco]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="Cheque_CuentaBanco">
@@ -282,6 +311,22 @@
       Name="Cheque"
       Multiplicity="Many"
       EntityType="Cheque" />
+    <AssociationEnd
+      Name="CuentaBanco"
+      Multiplicity="One"
+      EntityType="CuentaBanco">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="Girador_CuentaBanco">
+    <AssociationEnd
+      Name="Girador"
+      Multiplicity="Many"
+      EntityType="Girador" />
     <AssociationEnd
       Name="CuentaBanco"
       Multiplicity="One"

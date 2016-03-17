@@ -25,6 +25,14 @@
         <SortCriterion>
           <ChainExpression>
             <MemberExpression
+              Member="CuentaBanco" />
+            <MemberExpression
+              Member="BancoCuenta" />
+          </ChainExpression>
+        </SortCriterion>
+        <SortCriterion>
+          <ChainExpression>
+            <MemberExpression
               Member="Nombre" />
           </ChainExpression>
         </SortCriterion>

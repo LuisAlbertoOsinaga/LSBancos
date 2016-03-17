@@ -10,22 +10,30 @@
       <Partial />
     </EntityContainer.Attributes>
     <QueryOperation
-      Name="CuentaBancosAlfa"
-      ReturnType="CuentaBanco*">
+      Name="GiradoresOrden"
+      ReturnType="Girador*">
       <QueryOperation.FilterExpression>
         <QueryFilterExpressionTree />
       </QueryOperation.FilterExpression>
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="CuentaBancos" />
+            Member="Giradores" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperation.SortCriteria>
         <SortCriterion>
           <ChainExpression>
             <MemberExpression
+              Member="CuentaBanco" />
+            <MemberExpression
               Member="BancoCuenta" />
+          </ChainExpression>
+        </SortCriterion>
+        <SortCriterion>
+          <ChainExpression>
+            <MemberExpression
+              Member="Orden" />
           </ChainExpression>
         </SortCriterion>
       </QueryOperation.SortCriteria>

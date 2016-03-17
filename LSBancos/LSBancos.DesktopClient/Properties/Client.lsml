@@ -54,25 +54,26 @@
       Name="ScreenCommandShowBeneficiarioNuevo"
       Target="!module/Methods[ShowBeneficiarioNuevo]" />
     <ApplicationCommand
-      Name="ScreenCommandShowGiradoresLista"
-      Target="!module/Methods[ShowGiradoresLista]" />
-    <ApplicationCommand
       Name="ScreenCommandShowGiradorNuevo"
       Target="!module/Methods[ShowGiradorNuevo]" />
     <ApplicationCommand
-      Name="ScreenCommandShowChequesSolicitud"
-      Target="!module/Methods[ShowChequesSolicitud]" />
+      Name="ScreenCommandShowChequesSolicitadosLista"
+      Target="!module/Methods[ShowChequesSolicitadosLista]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowGiradoresLista"
+      Target="!module/Methods[ShowGiradoresLista]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
-      Name="group">
+      Name="group"
+      DefaultItem="!module/NavigationItems[group]/Children[ChequesSolicitadosLista]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Cheques" />
       </ApplicationNavigationGroup.Attributes>
       <ApplicationNavigationLink
-        Name="link"
-        Command="!module/Commands[ScreenCommandShowChequesSolicitud]" />
+        Name="ChequesSolicitadosLista"
+        Command="!module/Commands[ScreenCommandShowChequesSolicitadosLista]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Tasks"
@@ -85,7 +86,7 @@
         Name="BeneficiariosLista"
         Command="!module/Commands[ScreenCommandShowBeneficiariosLista]" />
       <ApplicationNavigationLink
-        Name="GiradoresLista"
+        Name="link"
         Command="!module/Commands[ScreenCommandShowGiradoresLista]" />
       <ApplicationNavigationLink
         Name="BancosLista"

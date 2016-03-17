@@ -225,6 +225,7 @@
     <Compile Include="DataSources\ApplicationData\Secuencia.lsml.cs">
       <DependentUpon>Secuencias.lsml</DependentUpon>
     </Compile>
+    <Compile Include="DataSources\ApplicationData\_ApplicationDataService.lsml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +267,12 @@
     </LightSwitchModel>
     <LightSwitchModel Include="DataSources\ApplicationData\CuentaBancosAlfa.lsml">
       <DependentUpon>CuentaBancos.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\ChequesSolicitadosPorCuenta.lsml">
+      <DependentUpon>Cheques.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\GiradoresOrden.lsml">
+      <DependentUpon>Giradores.lsml</DependentUpon>
     </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

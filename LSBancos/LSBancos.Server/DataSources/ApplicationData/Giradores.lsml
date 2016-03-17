@@ -26,6 +26,15 @@
           <NotSearchable />
         </KeyProperty.Attributes>
       </KeyProperty>
+      <NavigationProperty
+        Name="CuentaBanco"
+        Association="Girador_CuentaBanco"
+        FromEnd="Girador"
+        ToEnd="CuentaBanco">
+        <NavigationProperty.Attributes>
+          <IncludeInUniqueIndex />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
       <EntityProperty
         Name="Nombre"
         PropertyType=":String">
@@ -34,6 +43,14 @@
           <MaxLength
             Value="255" />
           <IncludeInUniqueIndex />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Orden"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="5" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -245,5 +262,14 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <EntitySetMapping
+      EntitySet="Giradores">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="Girador_CuentaBanco"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
   </DataService>
 </ServiceApplication>
