@@ -25,13 +25,7 @@
         <SortCriterion>
           <ChainExpression>
             <MemberExpression
-              Member="Categoria" />
-          </ChainExpression>
-        </SortCriterion>
-        <SortCriterion>
-          <ChainExpression>
-            <MemberExpression
-              Member="Clave" />
+              Member="CategoriaClave" />
           </ChainExpression>
         </SortCriterion>
       </QueryOperation.SortCriteria>

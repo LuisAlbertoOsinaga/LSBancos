@@ -25,12 +25,6 @@ namespace LightSwitchApplication
                                             this.Details.Properties.NroFinal);
         }
 
-        partial void CategoriaClaveNroActual_Compute(ref string result)
-        {
-            result = this.Categoria + "-" + this.Clave + "-"
-                        + this.NroActual.ToString();
-        }
-
         partial void Categoria_Changed()
         {
             if (!string.IsNullOrEmpty(this.Categoria))

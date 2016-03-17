@@ -27,13 +27,21 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
+        Name="CategoriaClave"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <IncludeInUniqueIndex />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="Categoria"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
           <MaxLength
             Value="255" />
-          <IncludeInUniqueIndex />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -43,7 +51,6 @@
           <Required />
           <MaxLength
             Value="255" />
-          <IncludeInUniqueIndex />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -83,13 +90,6 @@
         <EntityProperty.Attributes>
           <MaxLength
             Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="CategoriaClaveNroActual"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Computed />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty

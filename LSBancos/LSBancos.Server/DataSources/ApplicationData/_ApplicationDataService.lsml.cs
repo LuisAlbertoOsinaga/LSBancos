@@ -18,7 +18,14 @@ namespace LightSwitchApplication
                                                 entity.Nombre, 
                                                 entity.Moneda.Simbolo);
         }
-        
+
+        void Secuencias_Editing(Secuencia entity)
+        {
+            entity.CategoriaClave = string.Format("{0}-{1}",
+                                                entity.Categoria,
+                                                entity.Clave);
+        }
+
         #endregion
 
         #region Metodos Autogenerados
@@ -30,6 +37,16 @@ namespace LightSwitchApplication
         partial void CuentaBancos_Updating(CuentaBanco entity)
         {
             CuentaBancos_Editing(entity);
+        }
+
+        partial void Secuencias_Inserting(Secuencia entity)
+        {
+            Secuencias_Editing(entity);
+        }
+
+        partial void Secuencias_Updating(Secuencia entity)
+        {
+            Secuencias_Editing(entity);
         }
 
         #endregion

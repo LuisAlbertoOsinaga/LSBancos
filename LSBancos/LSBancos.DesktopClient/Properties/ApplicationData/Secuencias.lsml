@@ -8,8 +8,6 @@
     <EntityType.Attributes>
       <Proxy
         Target="ServiceInterface:Secuencia" />
-      <SummaryProperty
-        Property="Secuencia/Properties[CategoriaClaveNroActual]" />
     </EntityType.Attributes>
     <EntityType.Properties>
       <EntityProperty>
@@ -18,13 +16,6 @@
             Target="ServiceInterface:Secuencia/Properties[Categoria]" />
           <DisplayName
             Value="Categoría" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty>
-        <EntityProperty.Attributes>
-          <Computed />
-          <Proxy
-            Target="LightSwitchServiceApplication:Secuencia/Properties[CategoriaClaveNroActual]" />
         </EntityProperty.Attributes>
       </EntityProperty>
     </EntityType.Properties>
