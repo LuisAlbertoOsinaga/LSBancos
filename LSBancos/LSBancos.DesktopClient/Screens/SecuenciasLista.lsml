@@ -386,6 +386,194 @@
                 </ControlPropertySource>
               </ContentItem.PropertySources>
             </ContentItem>
+            <ContentItem
+              Name="SecuenciaGetPeek"
+              Kind="Group">
+              <ContentItem
+                Name="Get"
+                Kind="Group"
+                View="Microsoft.LightSwitch.RichClient:ColumnsLayout">
+                <ContentItem
+                  Name="Group"
+                  Kind="Group"
+                  View="Microsoft.LightSwitch.RichClient:GroupBox">
+                  <ContentItem
+                    Name="GetNro"
+                    Kind="Value"
+                    DataType=":Int32?"
+                    View="Microsoft.LightSwitch.RichClient:Label">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Nro" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="SecuenciasLista/Properties[GetNro]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="GetNroStr"
+                    Kind="Value"
+                    DataType=":String?"
+                    View="Microsoft.LightSwitch.RichClient:Label">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Nro Str" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="SecuenciasLista/Properties[GetNroStr]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem.CommandItems>
+                    <ContentItem
+                      Name="GetNroMethod"
+                      Kind="Command">
+                      <ContentItem.Attributes>
+                        <DisplayName
+                          Value="Get Nro" />
+                      </ContentItem.Attributes>
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="SecuenciasLista/Methods[GetNroMethod]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem.CommandItems>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.RichClient:GroupBox/Properties[ShowDisplayName]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="False"
+                            ResultType=":Boolean" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Top"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="Peek"
+                Kind="Group"
+                View="Microsoft.LightSwitch.RichClient:ColumnsLayout">
+                <ContentItem
+                  Name="Group1"
+                  Kind="Group"
+                  View="Microsoft.LightSwitch.RichClient:GroupBox">
+                  <ContentItem
+                    Name="PeekNro"
+                    Kind="Value"
+                    DataType=":Int32?">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Nro" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="SecuenciasLista/Properties[PeekNro]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="PeekNroStr"
+                    Kind="Value"
+                    DataType=":String?">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Nro Str" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="SecuenciasLista/Properties[PeekNroStr]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem.CommandItems>
+                    <ContentItem
+                      Name="PeekMethod"
+                      Kind="Command">
+                      <ContentItem.Attributes>
+                        <DisplayName
+                          Value="Peek Nro" />
+                      </ContentItem.Attributes>
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="SecuenciasLista/Methods[PeekMethod]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem.CommandItems>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[BrowseOnly]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="True"
+                          ResultType=":Boolean" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Top"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression
+                        Value="Top"
+                        ResultType=":String" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
             <ContentItem.PropertySources>
               <ControlPropertySource
                 Property="Microsoft.LightSwitch.RichClient:ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
@@ -481,6 +669,10 @@
             MethodName="DeleteSelected" />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod
+        Name="GetNroMethod" />
+      <ScreenMethod
+        Name="PeekMethod" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
@@ -512,6 +704,18 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="GetNro"
+        PropertyType=":Int32?" />
+      <ScreenProperty
+        Name="GetNroStr"
+        PropertyType=":String?" />
+      <ScreenProperty
+        Name="PeekNro"
+        PropertyType=":Int32?" />
+      <ScreenProperty
+        Name="PeekNroStr"
+        PropertyType=":String?" />
     </Screen.Properties>
   </Screen>
   <Application.Methods>

@@ -21,7 +21,7 @@ namespace LightSwitchApplication
 
         void Secuencias_Editing(Secuencia entity)
         {
-            entity.CategoriaClave = string.Format("{0}-{1}",
+            entity.CategoriaClave = string.Format("{0} - {1}",
                                                 entity.Categoria,
                                                 entity.Clave);
         }

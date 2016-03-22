@@ -9,6 +9,8 @@ using System.Linq;
 using System;
 using System.Windows;
 
+using LightSwitchApplication.UserCode.Shared;
+
 namespace LightSwitchApplication
 {
     public partial class SecuenciasLista
@@ -45,6 +47,27 @@ namespace LightSwitchApplication
                 else
                     Secuencias.SelectedItem.Delete();
             }
+        }
+
+        partial void GetNroMethod_Execute()
+        {
+            if(Secuencias.SelectedItem != null)
+            {
+                int nroFinal;
+                int digitos;
+                GetNro = ServicioSecuencia.GetNro(this.DataWorkspace, Secuencias.SelectedItem.Id, 
+                                                    out nroFinal, out digitos);
+                GetNroStr = ServicioSecuencia.GetNroStr(this.DataWorkspace, Secuencias.SelectedItem.Id);
+            }
+        }
+
+        partial void PeekMethod_Execute()
+        {
+            int nroFinal;
+            int digitos;
+            PeekNro = ServicioSecuencia.GetNro(this.DataWorkspace, Secuencias.SelectedItem.Id,
+                                                    out nroFinal, out digitos);
+            PeekNroStr = ServicioSecuencia.PeekNroStr(this.DataWorkspace, Secuencias.SelectedItem.Id);
         }
     }
 }
