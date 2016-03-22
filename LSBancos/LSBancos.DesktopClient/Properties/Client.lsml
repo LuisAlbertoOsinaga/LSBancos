@@ -57,9 +57,6 @@
       Name="ScreenCommandShowGiradorNuevo"
       Target="!module/Methods[ShowGiradorNuevo]" />
     <ApplicationCommand
-      Name="ScreenCommandShowChequesSolicitadosLista"
-      Target="!module/Methods[ShowChequesSolicitadosLista]" />
-    <ApplicationCommand
       Name="ScreenCommandShowGiradoresLista"
       Target="!module/Methods[ShowGiradoresLista]" />
     <ApplicationCommand
@@ -68,18 +65,21 @@
     <ApplicationCommand
       Name="ScreenCommandShowSecuenciaNueva"
       Target="!module/Methods[ShowSecuenciaNueva]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowChequesSolicitud"
+      Target="!module/Methods[ShowChequesSolicitud]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
       Name="group"
-      DefaultItem="!module/NavigationItems[group]/Children[ChequesSolicitadosLista]">
+      DefaultItem="!module/NavigationItems[group]/Children[ChequesSolicitud]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Cheques" />
       </ApplicationNavigationGroup.Attributes>
       <ApplicationNavigationLink
-        Name="ChequesSolicitadosLista"
-        Command="!module/Commands[ScreenCommandShowChequesSolicitadosLista]" />
+        Name="ChequesSolicitud"
+        Command="!module/Commands[ScreenCommandShowChequesSolicitud]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Tasks"

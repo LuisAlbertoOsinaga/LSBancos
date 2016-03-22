@@ -10,6 +10,13 @@ namespace LightSwitchApplication.UserCode.Shared
     {
         #region Métodos
 
+        public static int GetNro(DataWorkspace dw, int secuenciaId, bool peek = false)
+        {
+            int nroFinal;
+            int digitos;
+            return GetNro(dw, secuenciaId, out nroFinal, out digitos,  peek);
+        }
+
         public static int GetNro(DataWorkspace dw, int secuenciaId, 
                                                     out int nroFinal, out int digitos, bool peek = false)
         {
@@ -36,6 +43,13 @@ namespace LightSwitchApplication.UserCode.Shared
             int digitos;
             return GetNro(dw, secuenciaId, out nroActual, out digitos, peek)
                         .ToString().PadLeft(digitos, '0');
+        }
+
+        public static int PeekNro(DataWorkspace dw, int secuenciaId)
+        {
+            int nroFinal;
+            int digitos;
+            return PeekNro(dw, secuenciaId, out nroFinal, out digitos);
         }
 
         public static int PeekNro(DataWorkspace dw, int secuenciaId, out int nroFinal, out int digitos)

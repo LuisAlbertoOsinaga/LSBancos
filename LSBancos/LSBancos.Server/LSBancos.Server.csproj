@@ -268,10 +268,13 @@
     <LightSwitchModel Include="DataSources\ApplicationData\CuentaBancosAlfa.lsml">
       <DependentUpon>CuentaBancos.lsml</DependentUpon>
     </LightSwitchModel>
-    <LightSwitchModel Include="DataSources\ApplicationData\ChequesSolicitadosPorCuenta.lsml">
+    <LightSwitchModel Include="DataSources\ApplicationData\ChequesSolicitadosXCuentaYGirador.lsml">
       <DependentUpon>Cheques.lsml</DependentUpon>
     </LightSwitchModel>
     <LightSwitchModel Include="DataSources\ApplicationData\GiradoresOrden.lsml">
+      <DependentUpon>Giradores.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\GiradoresXCuenta.lsml">
       <DependentUpon>Giradores.lsml</DependentUpon>
     </LightSwitchModel>
     <None Include="Web.Debug.config">

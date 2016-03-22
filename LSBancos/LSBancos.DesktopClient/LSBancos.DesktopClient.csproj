@@ -274,8 +274,8 @@
     <Compile Include="Screens\BeneficiariosLista.lsml.cs">
       <DependentUpon>BeneficiariosLista.lsml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\ChequesSolicitadosLista.lsml.cs">
-      <DependentUpon>ChequesSolicitadosLista.lsml</DependentUpon>
+    <Compile Include="Screens\ChequesSolicitud.lsml.cs">
+      <DependentUpon>ChequesSolicitud.lsml</DependentUpon>
     </Compile>
     <Compile Include="Screens\GiradorNuevo.lsml.cs">
       <DependentUpon>GiradorNuevo.lsml</DependentUpon>
@@ -320,10 +320,10 @@
     <LightSwitchModel Include="Screens\BeneficiariosLista.lsml" />
     <LightSwitchModel Include="Screens\BeneficiarioNuevo.lsml" />
     <LightSwitchModel Include="Screens\GiradorNuevo.lsml" />
-    <LightSwitchModel Include="Screens\ChequesSolicitadosLista.lsml" />
     <LightSwitchModel Include="Screens\GiradoresLista.lsml" />
     <LightSwitchModel Include="Screens\SecuenciasLista.lsml" />
     <LightSwitchModel Include="Screens\SecuenciaNueva.lsml" />
+    <LightSwitchModel Include="Screens\ChequesSolicitud.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
