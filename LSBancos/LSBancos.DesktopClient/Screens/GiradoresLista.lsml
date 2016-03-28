@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Lista de Giradores" />
+        Value="Giradores" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Lista de Beneficiarios" />
+        Value="Beneficiarios" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

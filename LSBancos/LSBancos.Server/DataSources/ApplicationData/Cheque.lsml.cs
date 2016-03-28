@@ -8,10 +8,5 @@ namespace LightSwitchApplication
 {
     public partial class Cheque
     {
-        partial void CuentaBancoChequeComp_Compute(ref string result)
-        {
-            result = string.Format("{0} - {1}", this.CuentaBanco, this.Nro);
-            CuentaBancoCheque = result;
-        }
     }
 }

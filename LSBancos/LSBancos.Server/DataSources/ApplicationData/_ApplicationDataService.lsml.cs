@@ -1,4 +1,5 @@
-﻿using Microsoft.LightSwitch.Security.Server;
+﻿using System.Linq.Expressions;
+using Microsoft.LightSwitch.Security.Server;
 using Microsoft.LightSwitch;
 using System.Text;
 using System.Linq;
@@ -19,6 +20,13 @@ namespace LightSwitchApplication
                                                 entity.Moneda.Simbolo);
         }
 
+        void Cheques_Editing(Cheque entity)
+        {
+            entity.CuentaBancoCheque = string.Format("{0} - {1}",
+                                                entity.CuentaBanco.BancoCuenta,
+                                                entity.Nro);
+        }
+
         void Secuencias_Editing(Secuencia entity)
         {
             entity.CategoriaClave = string.Format("{0} - {1}",
@@ -29,6 +37,7 @@ namespace LightSwitchApplication
         #endregion
 
         #region Metodos Autogenerados
+
         partial void CuentaBancos_Inserting(CuentaBanco entity)
         {
             CuentaBancos_Editing(entity);
@@ -37,6 +46,16 @@ namespace LightSwitchApplication
         partial void CuentaBancos_Updating(CuentaBanco entity)
         {
             CuentaBancos_Editing(entity);
+        }
+
+        partial void Cheques_Inserting(Cheque entity)
+        {
+            Cheques_Editing(entity);
+        }
+
+        partial void Cheques_Updating(Cheque entity)
+        {
+            Cheques_Editing(entity);
         }
 
         partial void Secuencias_Inserting(Secuencia entity)

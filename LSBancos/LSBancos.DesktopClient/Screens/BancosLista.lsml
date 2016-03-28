@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Lista de Bancos y Cuentas" />
+        Value="Bancos y Cuentas" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

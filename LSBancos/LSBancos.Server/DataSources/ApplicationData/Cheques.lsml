@@ -67,12 +67,6 @@
           <DecimalConstraint
             Precision="18"
             Scale="2" />
-          <Attribute
-            Class="Microsoft.LightSwitch.Extensions:@MoneyProperties">
-            <Property
-              Name="IsFormatted"
-              Value="False" />
-          </Attribute>
           <Range
             Minimum="0" />
         </EntityProperty.Attributes>
@@ -213,13 +207,6 @@
         Association="Cheque_Girador"
         FromEnd="Cheque"
         ToEnd="Girador" />
-      <EntityProperty
-        Name="CuentaBancoChequeComp"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Computed />
-        </EntityProperty.Attributes>
-      </EntityProperty>
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"

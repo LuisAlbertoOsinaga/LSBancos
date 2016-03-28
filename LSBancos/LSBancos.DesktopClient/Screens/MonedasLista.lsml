@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Lista de Monedas" />
+        Value="Monedas" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

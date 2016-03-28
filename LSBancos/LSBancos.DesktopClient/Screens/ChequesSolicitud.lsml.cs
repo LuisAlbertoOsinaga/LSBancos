@@ -1,4 +1,5 @@
-﻿using Microsoft.LightSwitch.Presentation.Extensions;
+﻿using System.Collections.Specialized;
+using Microsoft.LightSwitch.Presentation.Extensions;
 using Microsoft.LightSwitch.Presentation;
 using Microsoft.LightSwitch.Framework.Client;
 using Microsoft.LightSwitch;
@@ -16,6 +17,7 @@ namespace LightSwitchApplication
     {
         #region Propiedades
 
+        IContentItemProxy btnNroCheque  ;
         IContentItemProxy comboGiradores;
 
         #endregion
@@ -30,6 +32,7 @@ namespace LightSwitchApplication
 
         void Findings()
         {
+            btnNroCheque = this.FindControl("BtnNroCheque");
             comboGiradores = this.FindControl("ComboGiradores");
         }
 
@@ -53,6 +56,25 @@ namespace LightSwitchApplication
             Bindings();
         }
 
+        partial void ChequesSolicitud_Saving(ref bool handled)
+        {
+            foreach (var cheque in Cheques)
+            {
+                if (cheque.Details.EntityState == EntityState.Added && string.IsNullOrEmpty(cheque.Nro))
+                {
+                    Cheques.SelectedItem = cheque;
+                    Cheques.DeleteSelected();
+                    continue;
+                }
+                cheque.CuentaBanco = Cuentas.SelectedItem;
+                cheque.Estado = "S";    // S-Solicitado
+                cheque.FechaSolicitud = FechaSolicitud;
+                cheque.Girador = Giradores.SelectedItem;
+                cheque.Solicitador = Application.Current.User.Name;
+                cheque.SolicitudNro = SolicitudNro.GetValueOrDefault();
+            }
+        }
+
         partial void Cuentas_SelectionChanged()
         {
             Cheque cheque = null;
@@ -64,6 +86,31 @@ namespace LightSwitchApplication
                           select chq).LastOrDefault();
             }
             UltimoCheque = cheque != null ? cheque.Nro : "0";
+        }
+
+        partial void Cheques_SelectionChanged()
+        {
+            if (Cheques.SelectedItem != null)
+                btnNroCheque.IsVisible = string.IsNullOrEmpty(Cheques.SelectedItem.Nro);
+            CantidadCheques = Cheques.Count;
+            Total = Cheques.Sum(x => x.Monto);
+        }
+
+        partial void NumeroCheque_Execute()
+        {
+            if(Cheques.Count > 1)
+            {
+                string nroChequeUlt = Cheques.ElementAt(Cheques.Count - 2).Nro;
+                int nroCheque = 0;
+                if (int.TryParse(nroChequeUlt, out nroCheque))
+                    Cheques.SelectedItem.Nro = (++nroCheque).ToString().PadLeft(nroChequeUlt.Length, '0');
+                else
+                    Cheques.SelectedItem.Nro = UltimoCheque;
+            }
+            else
+            {
+                Cheques.SelectedItem.Nro = UltimoCheque;
+            }
         }
 
         #endregion

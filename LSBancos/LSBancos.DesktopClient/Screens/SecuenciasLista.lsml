@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Lista de Secuencias" />
+        Value="Secuencias" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem

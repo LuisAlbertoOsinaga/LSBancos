@@ -80,17 +80,17 @@
       <ApplicationNavigationLink
         Name="ChequesSolicitud"
         Command="!module/Commands[ScreenCommandShowChequesSolicitud]" />
+      <ApplicationNavigationLink
+        Name="link2"
+        Command="!module/Commands[ScreenCommandShowBeneficiariosLista]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Tasks"
       DefaultItem="!module/NavigationItems[Tasks]/Children[BancosLista]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
-          Value="Listas" />
+          Value="Definiciones" />
       </ApplicationNavigationGroup.Attributes>
-      <ApplicationNavigationLink
-        Name="BeneficiariosLista"
-        Command="!module/Commands[ScreenCommandShowBeneficiariosLista]" />
       <ApplicationNavigationLink
         Name="link"
         Command="!module/Commands[ScreenCommandShowGiradoresLista]" />

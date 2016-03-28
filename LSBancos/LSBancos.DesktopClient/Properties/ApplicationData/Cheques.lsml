@@ -8,8 +8,6 @@
     <EntityType.Attributes>
       <Proxy
         Target="ServiceInterface:Cheque" />
-      <SummaryProperty
-        Property="Cheque/Properties[CuentaBancoChequeComp]" />
     </EntityType.Attributes>
     <EntityType.Properties>
       <KeyProperty>
@@ -33,13 +31,6 @@
             Target="ServiceInterface:Cheque/Properties[FechaAnulacion]" />
           <DisplayName
             Value="Fecha Anulación" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty>
-        <EntityProperty.Attributes>
-          <Computed />
-          <Proxy
-            Target="LightSwitchServiceApplication:Cheque/Properties[CuentaBancoChequeComp]" />
         </EntityProperty.Attributes>
       </EntityProperty>
     </EntityType.Properties>
