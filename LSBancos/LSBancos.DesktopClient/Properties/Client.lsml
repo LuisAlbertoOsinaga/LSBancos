@@ -3,6 +3,7 @@
   Name="LightSwitchApplication.LSBancos.DesktopClient"
   TargetPlatform="RichClient"
   Version="1.0.0.0"
+  DefaultNavigationItem="!module/NavigationItems[group]"
   Shell="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanShell"
   Theme="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanTheme" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
   <Application.Attributes>
@@ -68,21 +69,33 @@
     <ApplicationCommand
       Name="ScreenCommandShowChequesSolicitud"
       Target="!module/Methods[ShowChequesSolicitud]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowChequesSolicitados"
+      Target="!module/Methods[ShowChequesSolicitados]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
-      Name="group"
-      DefaultItem="!module/NavigationItems[group]/Children[ChequesSolicitud]">
+      Name="group">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Cheques" />
       </ApplicationNavigationGroup.Attributes>
       <ApplicationNavigationLink
-        Name="ChequesSolicitud"
-        Command="!module/Commands[ScreenCommandShowChequesSolicitud]" />
-      <ApplicationNavigationLink
         Name="link2"
         Command="!module/Commands[ScreenCommandShowBeneficiariosLista]" />
+      <ApplicationNavigationLink
+        Name="ChequesSolicitados"
+        Command="!module/Commands[ScreenCommandShowChequesSolicitados]" />
+    </ApplicationNavigationGroup>
+    <ApplicationNavigationGroup
+      Name="group1">
+      <ApplicationNavigationGroup.Attributes>
+        <DisplayName
+          Value="Reportes" />
+      </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="link3"
+        Command="!module/Commands[ScreenCommandShowChequesSolicitados]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Tasks"

@@ -324,6 +324,7 @@
     <LightSwitchModel Include="Screens\SecuenciasLista.lsml" />
     <LightSwitchModel Include="Screens\SecuenciaNueva.lsml" />
     <LightSwitchModel Include="Screens\ChequesSolicitud.lsml" />
+    <LightSwitchModel Include="Screens\ChequesSolicitados.lsml" />
   </ItemGroup>
   <ItemGroup>
     <_ClientBuildFile Include="default.htm">

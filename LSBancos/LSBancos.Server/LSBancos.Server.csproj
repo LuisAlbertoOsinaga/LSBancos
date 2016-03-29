@@ -277,6 +277,9 @@
     <LightSwitchModel Include="DataSources\ApplicationData\GiradoresXCuenta.lsml">
       <DependentUpon>Giradores.lsml</DependentUpon>
     </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\ChequesSolicitadosXCuenta.lsml">
+      <DependentUpon>Cheques.lsml</DependentUpon>
+    </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
