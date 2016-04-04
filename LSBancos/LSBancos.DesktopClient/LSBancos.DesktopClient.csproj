@@ -71,6 +71,9 @@
     <UseDesignTimeFeatures>false</UseDesignTimeFeatures>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Data.OData.SL">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Themes\Client\Reference\Microsoft.Data.OData.SL.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.LightSwitch, Version=10.0.14.0, Culture=neutral, PublicKeyToken=8e9329cecb4700e9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(LightSwitchSDKPath)\Client\Microsoft.LightSwitch.dll</HintPath>
@@ -143,6 +146,38 @@
       <Private>True</Private>
       <ProjectCritical>True</ProjectCritical>
     </Reference>
+    <Reference Include="Syncfusion.DockingManager.Silverlight">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Shell.Ribbon\Client\Reference\Syncfusion.DockingManager.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Shell.Ribbon.Client">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Shell.Ribbon\Client\Reference\Syncfusion.LightSwitch.Extension.Shell.Ribbon.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Shell.Ribbon.Client.Design">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Shell.Ribbon\Client\DebugOnlyRef\Syncfusion.LightSwitch.Extension.Shell.Ribbon.Client.Design.dll</HintPath>
+      <ExtensionReferenceType>DebugOnly</ExtensionReferenceType>
+    </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Shell.Ribbon.Common">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Shell.Ribbon\Client\Reference\Syncfusion.LightSwitch.Extension.Shell.Ribbon.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Themes.Client">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Themes\Client\Reference\Syncfusion.LightSwitch.Extension.Themes.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Themes.Client.Design">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Themes\Client\DebugOnlyRef\Syncfusion.LightSwitch.Extension.Themes.Client.Design.dll</HintPath>
+      <ExtensionReferenceType>DebugOnly</ExtensionReferenceType>
+    </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Themes.Common">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Themes\Client\Reference\Syncfusion.LightSwitch.Extension.Themes.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Ribbon.Silverlight">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Shell.Ribbon\Client\Reference\Syncfusion.Ribbon.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Silverlight">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Shell.Ribbon\Client\Reference\Syncfusion.Shared.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Silverlight">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Shell.Ribbon\Client\Reference\Syncfusion.Tools.Silverlight.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition">
       <SpecificVersion>False</SpecificVersion>
       <ProjectCritical>True</ProjectCritical>
@@ -170,6 +205,9 @@
     </Reference>
     <Reference Include="System.ServiceModel.Web.Extensions">
       <ProjectCritical>True</ProjectCritical>
+    </Reference>
+    <Reference Include="System.Spatial.SL">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Themes\Client\Reference\System.Spatial.SL.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows">
       <ProjectCritical>True</ProjectCritical>
@@ -221,6 +259,7 @@
     <Reference Include="Microsoft.CSharp">
       <ProjectCritical>True</ProjectCritical>
     </Reference>
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <ServiceMetadataReference Include="..\LSBancos.Server\LSBancos.Server.csproj">
@@ -273,6 +312,9 @@
     </Compile>
     <Compile Include="Screens\BeneficiariosLista.lsml.cs">
       <DependentUpon>BeneficiariosLista.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\ChequesSolicitados.lsml.cs">
+      <DependentUpon>ChequesSolicitados.lsml</DependentUpon>
     </Compile>
     <Compile Include="Screens\ChequesSolicitud.lsml.cs">
       <DependentUpon>ChequesSolicitud.lsml</DependentUpon>
@@ -338,6 +380,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Hash-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Data-Down.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.Build.Tasks.targets" />

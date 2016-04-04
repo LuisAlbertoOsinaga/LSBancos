@@ -61,6 +61,18 @@
     <Reference Include="Microsoft.LightSwitch.Extensions.Server">
       <HintPath>..\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\Server\Reference\Microsoft.LightSwitch.Extensions.Server.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Shell.Ribbon">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Shell.Ribbon\Server\Reference\Syncfusion.LightSwitch.Extension.Shell.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Shell.Ribbon.Common">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Shell.Ribbon\Server\Reference\Syncfusion.LightSwitch.Extension.Shell.Ribbon.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Themes.Common">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Themes\Server\Reference\Syncfusion.LightSwitch.Extension.Themes.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.LightSwitch.Extension.Themes.Server">
+      <HintPath>..\_Pvt_Extensions\Syncfusion.LightSwitch.Extension.Themes\Server\Reference\Syncfusion.LightSwitch.Extension.Themes.Server.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <ProjectCritical>True</ProjectCritical>
     </Reference>
