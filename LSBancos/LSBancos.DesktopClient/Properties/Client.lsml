@@ -3,8 +3,9 @@
   Name="LightSwitchApplication.LSBancos.DesktopClient"
   TargetPlatform="RichClient"
   Version="1.0.0.0"
+  DefaultNavigationItem="!module/NavigationItems[group]"
   Shell="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanShell"
-  Theme="Syncfusion.LightSwitch.Extension.Themes:SyncfusionOffice2010SilverExtension" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  Theme="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanTheme" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
   <Application.Attributes>
     <ModuleNamespace
       Namespace="LightSwitchApplication" />
@@ -71,6 +72,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowChequesSolicitados"
       Target="!module/Methods[ShowChequesSolicitados]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowChequesAnulados"
+      Target="!module/Methods[ShowChequesAnulados]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -95,6 +99,9 @@
       <ApplicationNavigationLink
         Name="link3"
         Command="!module/Commands[ScreenCommandShowChequesSolicitados]" />
+      <ApplicationNavigationLink
+        Name="link5"
+        Command="!module/Commands[ScreenCommandShowChequesAnulados]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Tasks"

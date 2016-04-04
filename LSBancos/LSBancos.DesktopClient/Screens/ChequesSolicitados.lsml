@@ -643,15 +643,19 @@
               </ContentItem>
               <ContentItem.CommandItems>
                 <ContentItem
-                  Name="Cheques_DeleteSelected"
+                  Name="ChequesDeleteSelected"
                   Kind="Command">
+                  <ContentItem.Attributes>
+                    <DisplayName
+                      Value="Delete" />
+                    <Description
+                      Value="Eliminar el cheque seleccionado de la lista" />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
-                        <MemberExpression
-                          Member="ChequesSolicitados/Properties[Cheques]" />
                         <CallExpression
-                          Target="DeleteSelected" />
+                          Target="ChequesSolicitados/Methods[ChequesDeleteSelected]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -659,6 +663,10 @@
                 <ContentItem
                   Name="AnularCheque"
                   Kind="Command">
+                  <ContentItem.Attributes>
+                    <Description
+                      Value="Anular el cheque seleccionado" />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -673,7 +681,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <ConstantExpression
-                            Value="Microsoft.LightSwitch.UserImageResources::Resources\Data-Down.png"
+                            Value="Microsoft.LightSwitch.UserImageResources::Resources\Anular.png"
                             ResultType=":String" />
                         </ChainExpression>
                       </ScreenExpressionTree>
@@ -722,6 +730,151 @@
                     <ConstantExpression
                       Value="Top"
                       ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+          <ContentItem
+            Name="AnulacionCheque"
+            Kind="Group"
+            View="Microsoft.LightSwitch.RichClient:ModalWindow">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="Anulación de Cheque" />
+              <Description
+                Value="Confirma la Anulación del Cheque " />
+            </ContentItem.Attributes>
+            <ContentItem
+              Name="Cheques_SelectedItem_Nro"
+              Kind="Value"
+              DataType=":String"
+              View="Microsoft.LightSwitch.RichClient:Label">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="ChequesSolicitados/Properties[Cheques]" />
+                    <MemberExpression
+                      Member="SelectedItem" />
+                    <MemberExpression
+                      Member="Nro" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem
+              Name="Cheques_SelectedItem_Concepto"
+              Kind="Value"
+              DataType=":String"
+              View="Microsoft.LightSwitch.RichClient:Label">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="ChequesSolicitados/Properties[Cheques]" />
+                    <MemberExpression
+                      Member="SelectedItem" />
+                    <MemberExpression
+                      Member="Concepto" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem
+              Name="Cheques_SelectedItem_Monto"
+              Kind="Value"
+              DataType="Microsoft.LightSwitch.Extensions:Money"
+              View="Microsoft.LightSwitch.Extensions:MoneyViewerControl">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="ChequesSolicitados/Properties[Cheques]" />
+                    <MemberExpression
+                      Member="SelectedItem" />
+                    <MemberExpression
+                      Member="Monto" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem
+              Name="FechaAnulacion"
+              Kind="Value"
+              DataType=":Date?">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="Fecha de Anulación" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="ChequesSolicitados/Properties[FechaAnulacion]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem
+              Name="CausaAnulacion"
+              Kind="Value"
+              DataType=":String">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="Causa de Anulación" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="ChequesSolicitados/Properties[CausaAnulacion]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem.CommandItems>
+              <ContentItem
+                Name="AnulacionCheque1"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Confirma Anulación" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="ChequesSolicitados/Methods[AnulacionCheque]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="CancelaAnulacion"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Cancela Anulación" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="ChequesSolicitados/Methods[CancelaAnulacion]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:ModalWindow/Properties[ShowButton]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="False"
+                      ResultType=":Boolean" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ControlPropertySource>
@@ -787,6 +940,17 @@
       </ScreenMethod>
       <ScreenMethod
         Name="AnularCheque" />
+      <ScreenMethod
+        Name="ChequesDeleteSelected">
+        <ScreenMethod.Attributes>
+          <BuiltInMethodOverride
+            MethodName="DeleteSelected" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="AnulacionCheque" />
+      <ScreenMethod
+        Name="CancelaAnulacion" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
@@ -856,6 +1020,16 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="FechaAnulacion"
+        PropertyType=":Date?" />
+      <ScreenProperty
+        Name="CausaAnulacion"
+        PropertyType=":String">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
     </Screen.Properties>
   </Screen>
   <Application.Methods>

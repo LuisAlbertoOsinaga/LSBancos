@@ -19,8 +19,8 @@
     <LightSwitchVersion>v5.0</LightSwitchVersion>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <SilverlightApplication>true</SilverlightApplication>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <SupportedCultures>en-US</SupportedCultures>
+    <DefaultLanguage>es</DefaultLanguage>
+    <SupportedCultures>es</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>LSBancos.DesktopClient.xap</XapFilename>
@@ -367,6 +367,7 @@
     <LightSwitchModel Include="Screens\SecuenciaNueva.lsml" />
     <LightSwitchModel Include="Screens\ChequesSolicitud.lsml" />
     <LightSwitchModel Include="Screens\ChequesSolicitados.lsml" />
+    <LightSwitchModel Include="Screens\ChequesAnulados.lsml" />
   </ItemGroup>
   <ItemGroup>
     <_ClientBuildFile Include="default.htm">
@@ -383,6 +384,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Data-Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Anular.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.Build.Tasks.targets" />
