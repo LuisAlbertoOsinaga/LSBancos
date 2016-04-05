@@ -29,7 +29,7 @@ namespace LightSwitchApplication
             {
                 var screen = s.Screen;
                 screen.Details.Dispatcher.BeginInvoke(() => {
-                    if (screen.DisplayName == "Lista de Monedas")
+                    if (screen.DisplayName == "Monedas")
                         screen.Refresh();
                 });
             }

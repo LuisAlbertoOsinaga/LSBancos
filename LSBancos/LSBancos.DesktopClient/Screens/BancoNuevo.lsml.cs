@@ -28,7 +28,7 @@ namespace LightSwitchApplication
             foreach (var s in screens)
             {
                 var screen = s.Screen;
-                screen.Details.Dispatcher.BeginInvoke(() => { if (screen.DisplayName == "Lista de Bancos")
+                screen.Details.Dispatcher.BeginInvoke(() => { if (screen.DisplayName == "Bancos y Cuentas")
                                                                         screen.Refresh(); });
             }
 

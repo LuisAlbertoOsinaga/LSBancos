@@ -276,6 +276,9 @@
     <Compile Include="..\LSBancos.Server\DataSources\ApplicationData\Cheque.lsml.cs">
       <Link>UserCode\Shared\Cheque.lsml.cs</Link>
     </Compile>
+    <Compile Include="..\LSBancos.Server\DataSources\ApplicationData\Concepto.lsml.cs">
+      <Link>UserCode\Shared\Concepto.lsml.cs</Link>
+    </Compile>
     <Compile Include="..\LSBancos.Server\DataSources\ApplicationData\Correo.lsml.cs">
       <Link>UserCode\Shared\Correo.lsml.cs</Link>
     </Compile>
@@ -293,6 +296,9 @@
     </Compile>
     <Compile Include="..\LSBancos.Server\DataSources\ApplicationData\Parametro.lsml.cs">
       <Link>UserCode\Shared\Parametro.lsml.cs</Link>
+    </Compile>
+    <Compile Include="..\LSBancos.Server\DataSources\ApplicationData\Periodo.lsml.cs">
+      <Link>UserCode\Shared\Periodo.lsml.cs</Link>
     </Compile>
     <Compile Include="..\LSBancos.Server\DataSources\ApplicationData\RolCorreo.lsml.cs">
       <Link>UserCode\Shared\RolCorreo.lsml.cs</Link>
@@ -351,6 +357,8 @@
     <LightSwitchModel Include="Properties\ApplicationData\Parametros.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\Secuencias.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\CuentaBancos.lsml" />
+    <LightSwitchModel Include="Properties\ApplicationData\Periodos.lsml" />
+    <LightSwitchModel Include="Properties\ApplicationData\Conceptos.lsml" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
     <ClientResource Include="Properties\Config.xml" />

@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="Cheque">
+    Name="Periodo">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
     </EntityType.Attributes>
@@ -27,39 +27,22 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
-        Name="CuentaBancoCheque"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-          <IncludeInUniqueIndex />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <NavigationProperty
-        Name="CuentaBanco"
-        Association="Cheque_CuentaBanco"
-        FromEnd="Cheque"
-        ToEnd="CuentaBanco" />
-      <EntityProperty
-        Name="Nro"
+        Name="Concepto"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
           <MaxLength
             Value="255" />
+          <IncludeInUniqueIndex />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <NavigationProperty
-        Name="Concepto"
-        Association="Cheque_Concepto"
-        FromEnd="Cheque"
-        ToEnd="Concepto" />
       <EntityProperty
         Name="Año"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
             Value="4" />
+          <IncludeInUniqueIndex />
           <SupportedValue
             DisplayName="0"
             Value="0" />
@@ -81,6 +64,12 @@
           <SupportedValue
             DisplayName="2020"
             Value="2020" />
+          <SupportedValue
+            DisplayName="2021"
+            Value="2021" />
+          <SupportedValue
+            DisplayName="2022"
+            Value="2022" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -88,9 +77,10 @@
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
-            Value="2" />
+            Value="15" />
+          <IncludeInUniqueIndex />
           <SupportedValue
-            DisplayName=" "
+            DisplayName="00"
             Value="00" />
           <SupportedValue
             DisplayName="ENERO"
@@ -117,7 +107,7 @@
             DisplayName="AGOSTO"
             Value="08" />
           <SupportedValue
-            DisplayName="SEPTIEMBRE"
+            DisplayName="SEPTIMBRE"
             Value="09" />
           <SupportedValue
             DisplayName="OCTUBRE"
@@ -130,163 +120,6 @@
             Value="12" />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <EntityProperty
-        Name="Monto"
-        PropertyType="Microsoft.LightSwitch.Extensions:Money">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-          <DecimalConstraint
-            Precision="18"
-            Scale="2" />
-          <Range
-            Minimum="0" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="SolicitudNro"
-        PropertyType=":Int32">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Estado"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Required />
-          <MaxLength
-            Value="1" />
-          <SupportedValue
-            DisplayName="APROBADO"
-            Value="A" />
-          <SupportedValue
-            DisplayName="COBRADO"
-            Value="C" />
-          <SupportedValue
-            DisplayName="GIRADO"
-            Value="G" />
-          <SupportedValue
-            DisplayName="ANULADO"
-            Value="N" />
-          <SupportedValue
-            DisplayName="PENDIENTE"
-            Value="P" />
-          <SupportedValue
-            DisplayName="SOLICITADO"
-            Value="S" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Solicitador"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Aprobador"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Cobrador"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Anulador"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="FechaSolicitud"
-        PropertyType=":DateTime?">
-        <EntityProperty.Attributes>
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="FechaAprobacion"
-        PropertyType=":DateTime?">
-        <EntityProperty.Attributes>
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="FechaGiro"
-        PropertyType=":DateTime?">
-        <EntityProperty.Attributes>
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="FechaCobro"
-        PropertyType=":DateTime?">
-        <EntityProperty.Attributes>
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="FechaAnulacion"
-        PropertyType=":DateTime?">
-        <EntityProperty.Attributes>
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Observaciones"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="ReferenciaBanco"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Comprobante"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Info"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <NavigationProperty
-        Name="Beneficiario"
-        Association="Cheque_Beneficiario"
-        FromEnd="Cheque"
-        ToEnd="Beneficiario" />
-      <NavigationProperty
-        Name="Girador"
-        Association="Cheque_Girador"
-        FromEnd="Cheque"
-        ToEnd="Girador" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -345,14 +178,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="Cheques"
+      Name="Periodos"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="Cheque" />
+      EntityType="Periodo" />
     <QueryOperation
-      Name="Cheques_Single"
-      ReturnType="Cheque">
+      Name="Periodos_Single"
+      ReturnType="Periodo">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -378,7 +211,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Cheques" />
+            Member="Periodos" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -391,8 +224,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="Cheques_SingleOrDefault"
-      ReturnType="Cheque">
+      Name="Periodos_SingleOrDefault"
+      ReturnType="Periodo">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -418,7 +251,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Cheques" />
+            Member="Periodos" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -431,35 +264,4 @@
       </QueryOperationParameter>
     </QueryOperation>
   </EntityContainer>
-  <DataService
-    Name="ApplicationDataMapping">
-    <DataService.Attributes>
-      <Partial />
-    </DataService.Attributes>
-    <EntitySetMapping
-      EntitySet="Cheques">
-      <EntitySetMapping.Attributes>
-        <SsdlForeignKeyProperty
-          Name="Cheque_Beneficiario"
-          Nullable="False"
-          Type="int" />
-        <SsdlForeignKeyProperty
-          Name="Cheque_Girador"
-          Nullable="False"
-          Type="int" />
-        <SsdlForeignKeyProperty
-          Name="Cheque_CuentaBanco"
-          Nullable="False"
-          Type="int" />
-        <SsdlForeignKeyProperty
-          Name="Cheque_Periodo"
-          Nullable="False"
-          Type="int" />
-        <SsdlForeignKeyProperty
-          Name="Cheque_Concepto"
-          Nullable="False"
-          Type="int" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-  </DataService>
 </ServiceApplication>

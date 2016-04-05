@@ -22,15 +22,15 @@
   <UserCodeAssemblies></UserCodeAssemblies>
   <ExtensionAssemblies>
     <ExtensionAssembly>Microsoft.LightSwitch.SdkProxy, Version=10.0.14.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
-    <ExtensionAssembly>Microsoft.LightSwitch.Cosmopolitan.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
-    <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
-    <ExtensionAssembly>Syncfusion.LightSwitch.Extension.Shell.Ribbon.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
-    <ExtensionAssembly>Syncfusion.LightSwitch.Extension.Shell.Ribbon.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
     <ExtensionAssembly>Syncfusion.DockingManager.Silverlight, Version=13.4500.0.53, Culture=neutral, PublicKeyToken=3D67ED1F87D44C89</ExtensionAssembly>
     <ExtensionAssembly>Syncfusion.Tools.Silverlight, Version=13.4500.0.53, Culture=neutral, PublicKeyToken=3D67ED1F87D44C89</ExtensionAssembly>
     <ExtensionAssembly>Syncfusion.Shared.Silverlight, Version=13.4500.0.53, Culture=neutral, PublicKeyToken=3D67ED1F87D44C89</ExtensionAssembly>
     <ExtensionAssembly>Syncfusion.Ribbon.Silverlight, Version=13.4500.0.53, Culture=neutral, PublicKeyToken=3D67ED1F87D44C89</ExtensionAssembly>
     <ExtensionAssembly>System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
+    <ExtensionAssembly>Microsoft.LightSwitch.Cosmopolitan.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
+    <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
+    <ExtensionAssembly>Syncfusion.LightSwitch.Extension.Shell.Ribbon.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
+    <ExtensionAssembly>Syncfusion.LightSwitch.Extension.Shell.Ribbon.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
     <ExtensionAssembly>Syncfusion.LightSwitch.Extension.Themes.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
     <ExtensionAssembly>Syncfusion.LightSwitch.Extension.Themes.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
     <ExtensionAssembly>Microsoft.Data.OData.SL, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>

@@ -488,19 +488,6 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Concepto"
-                  Kind="Value"
-                  DataType=":String">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Cheque/Properties[Concepto]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
                   Name="Monto"
                   Kind="Value"
                   DataType="Microsoft.LightSwitch.Extensions:Money">
@@ -759,24 +746,6 @@
                       Member="SelectedItem" />
                     <MemberExpression
                       Member="Nro" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-            </ContentItem>
-            <ContentItem
-              Name="Cheques_SelectedItem_Concepto"
-              Kind="Value"
-              DataType=":String"
-              View="Microsoft.LightSwitch.RichClient:Label">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression
-                      Member="ChequesSolicitados/Properties[Cheques]" />
-                    <MemberExpression
-                      Member="SelectedItem" />
-                    <MemberExpression
-                      Member="Concepto" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>

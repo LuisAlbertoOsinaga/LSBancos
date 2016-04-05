@@ -58,4 +58,10 @@
         Target="ServiceInterface:Girador_CuentaBanco" />
     </Association.Attributes>
   </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Cheque_Concepto" />
+    </Association.Attributes>
+  </Association>
 </Application>

@@ -213,6 +213,9 @@
     <Compile Include="DataSources\ApplicationData\Cheque.lsml.cs">
       <DependentUpon>Cheques.lsml</DependentUpon>
     </Compile>
+    <Compile Include="DataSources\ApplicationData\Concepto.lsml.cs">
+      <DependentUpon>Conceptos.lsml</DependentUpon>
+    </Compile>
     <Compile Include="DataSources\ApplicationData\Correo.lsml.cs">
       <DependentUpon>Correos.lsml</DependentUpon>
     </Compile>
@@ -230,6 +233,9 @@
     </Compile>
     <Compile Include="DataSources\ApplicationData\Parametro.lsml.cs">
       <DependentUpon>Parametros.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\ApplicationData\Periodo.lsml.cs">
+      <DependentUpon>Periodos.lsml</DependentUpon>
     </Compile>
     <Compile Include="DataSources\ApplicationData\RolCorreo.lsml.cs">
       <DependentUpon>RolCorreos.lsml</DependentUpon>
@@ -294,6 +300,14 @@
     </LightSwitchModel>
     <LightSwitchModel Include="DataSources\ApplicationData\ChequesAnuladosXCuenta.lsml">
       <DependentUpon>Cheques.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\Periodos.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\PeriodosAlfa.lsml">
+      <DependentUpon>Periodos.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\Conceptos.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\ConceptosAlfa.lsml">
+      <DependentUpon>Conceptos.lsml</DependentUpon>
     </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
