@@ -303,6 +303,9 @@
     <Compile Include="..\LSBancos.Server\DataSources\ApplicationData\RolCorreo.lsml.cs">
       <Link>UserCode\Shared\RolCorreo.lsml.cs</Link>
     </Compile>
+    <Compile Include="..\LSBancos.Server\DataSources\ApplicationData\Rubro.lsml.cs">
+      <Link>UserCode\Shared\Rubro.lsml.cs</Link>
+    </Compile>
     <Compile Include="..\LSBancos.Server\DataSources\ApplicationData\Secuencia.lsml.cs">
       <Link>UserCode\Shared\Secuencia.lsml.cs</Link>
     </Compile>
@@ -359,6 +362,7 @@
     <LightSwitchModel Include="Properties\ApplicationData\CuentaBancos.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\Periodos.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\Conceptos.lsml" />
+    <LightSwitchModel Include="Properties\ApplicationData\Rubros.lsml" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
     <ClientResource Include="Properties\Config.xml" />

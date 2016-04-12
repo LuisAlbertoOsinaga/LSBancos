@@ -240,6 +240,9 @@
     <Compile Include="DataSources\ApplicationData\RolCorreo.lsml.cs">
       <DependentUpon>RolCorreos.lsml</DependentUpon>
     </Compile>
+    <Compile Include="DataSources\ApplicationData\Rubro.lsml.cs">
+      <DependentUpon>Rubros.lsml</DependentUpon>
+    </Compile>
     <Compile Include="DataSources\ApplicationData\Secuencia.lsml.cs">
       <DependentUpon>Secuencias.lsml</DependentUpon>
     </Compile>
@@ -308,6 +311,10 @@
     <LightSwitchModel Include="DataSources\ApplicationData\Conceptos.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\ConceptosAlfa.lsml">
       <DependentUpon>Conceptos.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\Rubros.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\RubrosAlfa.lsml">
+      <DependentUpon>Rubros.lsml</DependentUpon>
     </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

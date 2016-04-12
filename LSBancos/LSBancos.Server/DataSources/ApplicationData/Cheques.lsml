@@ -287,6 +287,11 @@
         Association="Cheque_Girador"
         FromEnd="Cheque"
         ToEnd="Girador" />
+      <NavigationProperty
+        Name="Rubro"
+        Association="Cheque_Rubro"
+        FromEnd="Cheque"
+        ToEnd="Rubro" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -457,6 +462,10 @@
           Type="int" />
         <SsdlForeignKeyProperty
           Name="Cheque_Concepto"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Cheque_Rubro"
           Nullable="False"
           Type="int" />
       </EntitySetMapping.Attributes>

@@ -64,4 +64,10 @@
         Target="ServiceInterface:Cheque_Concepto" />
     </Association.Attributes>
   </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Cheque_Rubro" />
+    </Association.Attributes>
+  </Association>
 </Application>

@@ -729,6 +729,29 @@
                     </ContentItem.DataSource>
                   </ContentItem>
                   <ContentItem
+                    Name="Rubro"
+                    Kind="Details"
+                    DataType="Rubro">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="Cheque/Properties[Rubro]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="Rubro1"
+                      Kind="Details"
+                      DataType="Rubro">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression />
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem>
+                  <ContentItem
                     Name="Concepto"
                     Kind="Details"
                     DataType="Concepto">
