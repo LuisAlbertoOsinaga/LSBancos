@@ -43,6 +43,7 @@ namespace LightSwitchApplication
                                    select sec).FirstOrDefault();
             SolicitudNro = secuencia != null ? ServicioSecuencia.GetNro(this.DataWorkspace, secuencia.Id) : 0;
             FechaSolicitud = DateTime.Now;
+            btnNroCheque.IsVisible = false;
         }
 
         #endregion
@@ -51,8 +52,8 @@ namespace LightSwitchApplication
 
         partial void ChequesSolicitud_InitializeDataWorkspace(List<IDataService> saveChangesTo)
         {
-            Init();
             Findings();
+            Init();
             Bindings();
         }
 

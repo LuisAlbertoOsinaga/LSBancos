@@ -886,6 +886,23 @@
                       </ControlPropertySource>
                     </ContentItem.PropertySources>
                   </ContentItem>
+                  <ContentItem
+                    Name="Descripcion"
+                    Kind="Value"
+                    DataType=":String?">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Descripcion" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="Cheque/Properties[Descripcion]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -953,6 +970,16 @@
                         <ConstantExpression
                           Value="Top"
                           ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:DataGrid/Properties[ShowVirtualRow]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="False"
+                          ResultType=":Boolean" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ControlPropertySource>
@@ -1167,7 +1194,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <ConstantExpression
-                      Value="3"
+                      Value="5"
                       ResultType=":Double" />
                   </ChainExpression>
                 </ScreenExpressionTree>

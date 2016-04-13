@@ -80,6 +80,12 @@
     <ApplicationCommand
       Name="ScreenCommandShowConceptoNuevo"
       Target="!module/Methods[ShowConceptoNuevo]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowRubrosLista"
+      Target="!module/Methods[ShowRubrosLista]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowRubroNuevo"
+      Target="!module/Methods[ShowRubroNuevo]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -93,14 +99,14 @@
         Name="ConceptosLista"
         Command="!module/Commands[ScreenCommandShowConceptosLista]" />
       <ApplicationNavigationLink
+        Name="RubrosLista"
+        Command="!module/Commands[ScreenCommandShowRubrosLista]" />
+      <ApplicationNavigationLink
         Name="link2"
         Command="!module/Commands[ScreenCommandShowBeneficiariosLista]" />
       <ApplicationNavigationLink
         Name="link4"
         Command="!module/Commands[ScreenCommandShowChequesSolicitud]" />
-      <ApplicationNavigationLink
-        Name="ConceptoNuevo"
-        Command="!module/Commands[ScreenCommandShowConceptoNuevo]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group1">
