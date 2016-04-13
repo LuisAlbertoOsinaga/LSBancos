@@ -3,7 +3,6 @@
   Name="LightSwitchApplication.LSBancos.DesktopClient"
   TargetPlatform="RichClient"
   Version="1.0.0.0"
-  DefaultNavigationItem="!module/NavigationItems[group]"
   Shell="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanShell"
   Theme="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanTheme" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
   <Application.Attributes>
@@ -75,20 +74,33 @@
     <ApplicationCommand
       Name="ScreenCommandShowChequesAnulados"
       Target="!module/Methods[ShowChequesAnulados]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowConceptosLista"
+      Target="!module/Methods[ShowConceptosLista]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowConceptoNuevo"
+      Target="!module/Methods[ShowConceptoNuevo]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
-      Name="group">
+      Name="group"
+      DefaultItem="!module/NavigationItems[group]/Children[ConceptosLista]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Cheques" />
       </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="ConceptosLista"
+        Command="!module/Commands[ScreenCommandShowConceptosLista]" />
       <ApplicationNavigationLink
         Name="link2"
         Command="!module/Commands[ScreenCommandShowBeneficiariosLista]" />
       <ApplicationNavigationLink
         Name="link4"
         Command="!module/Commands[ScreenCommandShowChequesSolicitud]" />
+      <ApplicationNavigationLink
+        Name="ConceptoNuevo"
+        Command="!module/Commands[ScreenCommandShowConceptoNuevo]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group1">
