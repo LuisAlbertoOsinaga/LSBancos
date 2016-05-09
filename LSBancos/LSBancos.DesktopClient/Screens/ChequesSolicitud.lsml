@@ -777,37 +777,6 @@
                     </ContentItem.DataSource>
                   </ContentItem>
                   <ContentItem
-                    Name="Beneficiario"
-                    Kind="Details"
-                    DataType="Beneficiario">
-                    <ContentItem.ChoicesSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="ChequesSolicitud/Properties[BeneficiariosAlfa]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.ChoicesSource>
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="Cheque/Properties[Beneficiario]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                    <ContentItem
-                      Name="Beneficiario1"
-                      Kind="Details"
-                      DataType="Beneficiario">
-                      <ContentItem.DataSource>
-                        <ScreenExpressionTree>
-                          <ChainExpression />
-                        </ScreenExpressionTree>
-                      </ContentItem.DataSource>
-                    </ContentItem>
-                  </ContentItem>
-                  <ContentItem
                     Name="Monto"
                     Kind="Value"
                     DataType="Microsoft.LightSwitch.Extensions:Money">
@@ -931,6 +900,90 @@
                           <ChainExpression>
                             <ConstantExpression
                               Value="Microsoft.LightSwitch.UserImageResources::Resources\Hash-WF.png"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="NuevoBeneficiario"
+                    Kind="Command">
+                    <ContentItem.Attributes>
+                      <Description
+                        Value="Nuevo Beneficiario" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression
+                            Target="ChequesSolicitud/Methods[NuevoBeneficiario]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[Image]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Microsoft.LightSwitch.UserImageResources::Resources\Cliente.png"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="NuevoConcepto"
+                    Kind="Command">
+                    <ContentItem.Attributes>
+                      <Description
+                        Value="Nuevo Concepto" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression
+                            Target="ChequesSolicitud/Methods[NuevoConcepto]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[Image]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Microsoft.LightSwitch.UserImageResources::Resources\Concepto.png"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="NuevoRubro"
+                    Kind="Command">
+                    <ContentItem.Attributes>
+                      <Description
+                        Value="Nuevo Rubro" />
+                    </ContentItem.Attributes>
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression
+                            Target="ChequesSolicitud/Methods[NuevoRubro]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[Image]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Microsoft.LightSwitch.UserImageResources::Resources\Rubro.png"
                               ResultType=":String" />
                           </ChainExpression>
                         </ScreenExpressionTree>
@@ -1213,6 +1266,34 @@
               </ScreenExpressionTree>
             </ContentItem.DataSource>
           </ContentItem>
+          <ContentItem
+            Name="Enviar"
+            Kind="Command">
+            <ContentItem.Attributes>
+              <Description
+                Value="Enviar cheques para giro" />
+            </ContentItem.Attributes>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression
+                    Target="ChequesSolicitud/Methods[Enviar]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[Image]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Microsoft.LightSwitch.UserImageResources::Resources\Mail.png"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
         </ContentItem.CommandItems>
       </ContentItem>
     </Screen.RootContentItem>
@@ -1247,6 +1328,14 @@
       </ScreenMethod>
       <ScreenMethod
         Name="NumeroCheque" />
+      <ScreenMethod
+        Name="NuevoRubro" />
+      <ScreenMethod
+        Name="NuevoConcepto" />
+      <ScreenMethod
+        Name="NuevoBeneficiario" />
+      <ScreenMethod
+        Name="Enviar" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
@@ -1336,7 +1425,7 @@
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="ApplicationData/Members[ChequesSolicitadosXCuentaYGirador]" />
+                  Member="ApplicationData/Members[ChequesSolicitadosXCuenta]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
@@ -1356,36 +1445,28 @@
                     Member="Id" />
                 </ChainExpression>
               </ArgumentExpression>
-              <ArgumentExpression
-                Parameter="GiradorId">
-                <ChainExpression>
-                  <MemberExpression
-                    Member="ChequesSolicitud/Properties[Giradores]" />
-                  <MemberExpression
-                    Member="SelectedItem" />
-                  <MemberExpression
-                    Member="Id" />
-                </ChainExpression>
-              </ArgumentExpression>
             </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
       <ScreenCollectionProperty
-        Name="BeneficiariosAlfa"
+        Name="Secuencias"
+        DisablePaging="True"
+        DisableSearch="True"
+        DisableSorting="True"
         PageSize="45"
-        PropertyType="CollectionView$Beneficiario">
+        PropertyType="CollectionView$Secuencia">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
-            Name="BeneficiariosAlfaQuery"
-            ReturnType="Beneficiario*">
+            Name="SecuenciasQuery"
+            ReturnType="Secuencia*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="ApplicationData/Members[BeneficiariosAlfa]" />
+                  Member="ApplicationData/Members[SecuenciasAlfa]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
@@ -1393,10 +1474,13 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="ChequesSolicitud/Properties[BeneficiariosAlfa]/Query" />
+              Target="ChequesSolicitud/Properties[Secuencias]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="SecuenciaNroSolicitud"
+        PropertyType="Secuencia" />
       <ScreenProperty
         Name="SolicitudNro"
         PropertyType=":Int32?" />

@@ -38,11 +38,10 @@ namespace LightSwitchApplication
 
         void Init()
         {
-            Secuencia secuencia = (from Secuencia sec in this.DataWorkspace.ApplicationData.Secuencias
+            SecuenciaNroSolicitud = (from Secuencia sec in Secuencias
                                    where sec.Categoria == "CHEQUES" && sec.Clave == "SOLICITUD NRO"
                                    select sec).FirstOrDefault();
-            SolicitudNro = secuencia != null ? ServicioSecuencia.GetNro(this.DataWorkspace, secuencia.Id) : 0;
-            FechaSolicitud = DateTime.Now;
+            SolicitudNro = SecuenciaNroSolicitud != null ? ServicioSecuencia.GetNro(this.DataWorkspace, SecuenciaNroSolicitud.Id) : 0;
             btnNroCheque.IsVisible = false;
         }
 
@@ -57,6 +56,15 @@ namespace LightSwitchApplication
             Bindings();
         }
 
+        partial void Cheques_Loaded(bool succeeded)
+        {
+            if (Cheques.Count == 0)
+            {
+                SolicitudNro = ServicioSecuencia.PeekNro(this.DataWorkspace, SecuenciaNroSolicitud.Id);
+                FechaSolicitud = DateTime.Now;
+            }
+        }
+
         partial void ChequesSolicitud_Saving(ref bool handled)
         {
             foreach (var cheque in Cheques)
@@ -68,7 +76,8 @@ namespace LightSwitchApplication
                     continue;
                 }
                 cheque.CuentaBanco = Cuentas.SelectedItem;
-                cheque.Estado = "S";    // S-Solicitado
+                if(string.IsNullOrEmpty(cheque.Estado))
+                    cheque.Estado = "S";    // S-Solicitado
                 cheque.FechaSolicitud = FechaSolicitud;
                 cheque.Girador = Giradores.SelectedItem;
                 cheque.Solicitador = Application.Current.User.Name;
@@ -78,6 +87,7 @@ namespace LightSwitchApplication
 
         partial void Cuentas_SelectionChanged()
         {
+            // Ultimo cheque
             Cheque cheque = null;
             if(Cuentas.SelectedItem != null)
             {
@@ -92,14 +102,33 @@ namespace LightSwitchApplication
         partial void Cheques_SelectionChanged()
         {
             if (Cheques.SelectedItem != null)
-                btnNroCheque.IsVisible = string.IsNullOrEmpty(Cheques.SelectedItem.Nro);
+            {
+                    FechaSolicitud = Cheques.SelectedItem.FechaSolicitud.GetValueOrDefault();
+                    btnNroCheque.IsVisible = string.IsNullOrEmpty(Cheques.SelectedItem.Nro);
+            }
             CantidadCheques = Cheques.Count;
             Total = Cheques.Sum(x => x.Monto);
         }
 
+        partial void Giradores_Loaded(bool succeeded)
+        {
+            if (Giradores.Count > 0)
+                Giradores.SelectedItem = Giradores.FirstOrDefault();
+        }
+
+        partial void Enviar_Execute()
+        {
+            CuentaBanco ctaSelected = Cuentas.SelectedItem;
+            foreach (var cheque in Cheques)
+                cheque.Estado = "A";    // A-Aprobado
+            this.Save();
+            this.Refresh();
+            Cuentas.SelectedItem = ctaSelected;
+        }
+
         partial void NumeroCheque_Execute()
         {
-            if(Cheques.Count > 1)
+            if (Cheques.Count > 1)
             {
                 string nroChequeUlt = Cheques.ElementAt(Cheques.Count - 2).Nro;
                 int nroCheque = 0;
@@ -110,8 +139,25 @@ namespace LightSwitchApplication
             }
             else
             {
-                Cheques.SelectedItem.Nro = UltimoCheque;
+                int siguienteCheque = 0;
+                if (int.TryParse(UltimoCheque, out siguienteCheque))
+                    Cheques.SelectedItem.Nro = (++siguienteCheque).ToString().PadLeft(UltimoCheque.Length, '0');
             }
+        }
+
+        partial void NuevoBeneficiario_Execute()
+        {
+            Application.ShowBeneficiarioNuevo();
+        }
+
+        partial void NuevoConcepto_Execute()
+        {
+            Application.ShowConceptoNuevo();
+        }
+
+        partial void NuevoRubro_Execute()
+        {
+            Application.ShowRubroNuevo();
         }
 
         #endregion

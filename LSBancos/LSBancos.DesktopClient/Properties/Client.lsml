@@ -2,6 +2,7 @@
 <Application
   Name="LightSwitchApplication.LSBancos.DesktopClient"
   TargetPlatform="RichClient"
+  Logo="Microsoft.LightSwitch.UserImageResources::Resources\CF_LibroBancos.png"
   Version="1.0.0.0"
   Shell="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanShell"
   Theme="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanTheme" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
@@ -96,17 +97,17 @@
           Value="Cheques" />
       </ApplicationNavigationGroup.Attributes>
       <ApplicationNavigationLink
+        Name="link4"
+        Command="!module/Commands[ScreenCommandShowChequesSolicitud]" />
+      <ApplicationNavigationLink
+        Name="link2"
+        Command="!module/Commands[ScreenCommandShowBeneficiariosLista]" />
+      <ApplicationNavigationLink
         Name="ConceptosLista"
         Command="!module/Commands[ScreenCommandShowConceptosLista]" />
       <ApplicationNavigationLink
         Name="RubrosLista"
         Command="!module/Commands[ScreenCommandShowRubrosLista]" />
-      <ApplicationNavigationLink
-        Name="link2"
-        Command="!module/Commands[ScreenCommandShowBeneficiariosLista]" />
-      <ApplicationNavigationLink
-        Name="link4"
-        Command="!module/Commands[ScreenCommandShowChequesSolicitud]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group1">

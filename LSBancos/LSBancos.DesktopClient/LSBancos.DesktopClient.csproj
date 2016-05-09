@@ -416,6 +416,36 @@
   <ItemGroup>
     <Resource Include="Resources\Anular.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cheque-02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Stock-Exchange-02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Stock-Exchange-03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Concepto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Rubro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\interact_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CF_LibroBancos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Mail.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.Build.Tasks.targets" />
   <Target Name="BeforeBuild">
