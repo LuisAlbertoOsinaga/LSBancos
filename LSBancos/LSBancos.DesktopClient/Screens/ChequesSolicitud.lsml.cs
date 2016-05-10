@@ -26,8 +26,10 @@ namespace LightSwitchApplication
 
         void Bindings()
         {
-            comboGiradores.SetBinding(System.Windows.Controls.ComboBox.ItemsSourceProperty, "Screen.Giradores", System.Windows.Data.BindingMode.OneWay);
-            comboGiradores.SetBinding(System.Windows.Controls.ComboBox.SelectedItemProperty, "Screen.Giradores.SelectedItem", System.Windows.Data.BindingMode.TwoWay);
+            comboGiradores.SetBinding(System.Windows.Controls.ComboBox.ItemsSourceProperty, 
+                                        "Screen.Giradores", System.Windows.Data.BindingMode.TwoWay);
+            comboGiradores.SetBinding(System.Windows.Controls.ComboBox.SelectedItemProperty, 
+                                        "Screen.Giradores.SelectedItem", System.Windows.Data.BindingMode.TwoWay);
         }
 
         void Findings()
@@ -38,10 +40,17 @@ namespace LightSwitchApplication
 
         void Init()
         {
+            // Solicitud Nro
             SecuenciaNroSolicitud = (from Secuencia sec in Secuencias
                                    where sec.Categoria == "CHEQUES" && sec.Clave == "SOLICITUD NRO"
                                    select sec).FirstOrDefault();
-            SolicitudNro = SecuenciaNroSolicitud != null ? ServicioSecuencia.GetNro(this.DataWorkspace, SecuenciaNroSolicitud.Id) : 0;
+            SolicitudNro = SecuenciaNroSolicitud != null ? 
+                                    ServicioSecuencia.GetNro(this.DataWorkspace, SecuenciaNroSolicitud.Id) : 0;
+            SolicitudNroStr = SolicitudNro.ToString().PadLeft(SecuenciaNroSolicitud.Digitos.GetValueOrDefault(), '0');
+
+            // Fecha Solicitud
+            FechaSolicitud = DateTime.Now;
+
             btnNroCheque.IsVisible = false;
         }
 
@@ -56,23 +65,25 @@ namespace LightSwitchApplication
             Bindings();
         }
 
-        partial void Cheques_Loaded(bool succeeded)
+        partial void ChequesSolicitados_Loaded(bool succeeded)
         {
-            if (Cheques.Count == 0)
+            if (ChequesSolicitados.Count == 0)
             {
-                SolicitudNro = ServicioSecuencia.PeekNro(this.DataWorkspace, SecuenciaNroSolicitud.Id);
+                SolicitudNro = ServicioSecuencia.GetNro(this.DataWorkspace, SecuenciaNroSolicitud.Id);
+                SolicitudNroStr = SolicitudNro.ToString()
+                                    .PadLeft(SecuenciaNroSolicitud.Digitos.GetValueOrDefault(), '0');
                 FechaSolicitud = DateTime.Now;
             }
         }
 
         partial void ChequesSolicitud_Saving(ref bool handled)
         {
-            foreach (var cheque in Cheques)
+            foreach (var cheque in ChequesSolicitados)
             {
                 if (cheque.Details.EntityState == EntityState.Added && string.IsNullOrEmpty(cheque.Nro))
                 {
-                    Cheques.SelectedItem = cheque;
-                    Cheques.DeleteSelected();
+                    ChequesSolicitados.SelectedItem = cheque;
+                    ChequesSolicitados.DeleteSelected();
                     continue;
                 }
                 cheque.CuentaBanco = Cuentas.SelectedItem;
@@ -89,59 +100,61 @@ namespace LightSwitchApplication
         {
             // Ultimo cheque
             Cheque cheque = null;
-            if(Cuentas.SelectedItem != null)
+            if (Cuentas.SelectedItem != null)
             {
                 cheque = (from Cheque chq in this.DataWorkspace.ApplicationData.Cheques
                           where chq.CuentaBanco.Id == Cuentas.SelectedItem.Id
                           orderby chq.Nro
                           select chq).LastOrDefault();
             }
-            UltimoCheque = cheque != null ? cheque.Nro : "0";
+            UltimoCheque = cheque != null ? cheque.Nro 
+                                            : "0".PadLeft(SecuenciaNroSolicitud.Digitos.GetValueOrDefault(), '0');
         }
 
-        partial void Cheques_SelectionChanged()
+        partial void ChequesSolicitados_SelectionChanged()
         {
-            if (Cheques.SelectedItem != null)
+            if (ChequesSolicitados.SelectedItem != null)
             {
-                    FechaSolicitud = Cheques.SelectedItem.FechaSolicitud.GetValueOrDefault();
-                    btnNroCheque.IsVisible = string.IsNullOrEmpty(Cheques.SelectedItem.Nro);
+                FechaSolicitud = ChequesSolicitados.SelectedItem.FechaSolicitud.GetValueOrDefault();
+                btnNroCheque.IsVisible = string.IsNullOrEmpty(ChequesSolicitados.SelectedItem.Nro);
             }
-            CantidadCheques = Cheques.Count;
-            Total = Cheques.Sum(x => x.Monto);
-        }
-
-        partial void Giradores_Loaded(bool succeeded)
-        {
-            if (Giradores.Count > 0)
-                Giradores.SelectedItem = Giradores.FirstOrDefault();
+            CantidadCheques = ChequesSolicitados.Count;
+            Total = ChequesSolicitados.Sum(x => x.Monto);
         }
 
         partial void Enviar_Execute()
         {
             CuentaBanco ctaSelected = Cuentas.SelectedItem;
-            foreach (var cheque in Cheques)
-                cheque.Estado = "A";    // A-Aprobado
+            for (int i = 0; i < ChequesSolicitados.Count; i++)
+                ChequesSolicitados.ElementAt(i).Estado = "A";    // A-Aprobado
             this.Save();
+            this.ShowMessageBox("Envío realizado!", "CONFIRMACION", MessageBoxOption.Ok);
             this.Refresh();
             Cuentas.SelectedItem = ctaSelected;
         }
 
+        partial void Giradores_SelectionChanged()
+        {
+            if (Giradores.Count > 0 && Giradores.SelectedItem == null)
+                Giradores.SelectedItem = Giradores.FirstOrDefault();
+        }
+
         partial void NumeroCheque_Execute()
         {
-            if (Cheques.Count > 1)
+            if (ChequesSolicitados.Count > 1)
             {
-                string nroChequeUlt = Cheques.ElementAt(Cheques.Count - 2).Nro;
+                string nroChequeUlt = ChequesSolicitados.ElementAt(ChequesSolicitados.Count - 2).Nro;
                 int nroCheque = 0;
                 if (int.TryParse(nroChequeUlt, out nroCheque))
-                    Cheques.SelectedItem.Nro = (++nroCheque).ToString().PadLeft(nroChequeUlt.Length, '0');
+                    ChequesSolicitados.SelectedItem.Nro = (++nroCheque).ToString().PadLeft(nroChequeUlt.Length, '0');
                 else
-                    Cheques.SelectedItem.Nro = UltimoCheque;
+                    ChequesSolicitados.SelectedItem.Nro = UltimoCheque;
             }
             else
             {
                 int siguienteCheque = 0;
                 if (int.TryParse(UltimoCheque, out siguienteCheque))
-                    Cheques.SelectedItem.Nro = (++siguienteCheque).ToString().PadLeft(UltimoCheque.Length, '0');
+                    ChequesSolicitados.SelectedItem.Nro = (++siguienteCheque).ToString().PadLeft(UltimoCheque.Length, '0');
             }
         }
 

@@ -345,15 +345,19 @@
               Kind="Group"
               View="Microsoft.LightSwitch.RichClient:ColumnsLayout">
               <ContentItem
-                Name="SolicitudNro"
+                Name="SolicitudNroStr"
                 Kind="Value"
-                DataType=":Int32?"
+                DataType=":String?"
                 View="Microsoft.LightSwitch.RichClient:Label">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Solicitud Nro." />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="ChequesSolicitud/Properties[SolicitudNro]" />
+                        Member="ChequesSolicitud/Properties[SolicitudNroStr]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -375,16 +379,6 @@
                         <ConstantExpression
                           Value="6"
                           ResultType=":Int32" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression
-                          Value="Left"
-                          ResultType=":String" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ControlPropertySource>
@@ -678,7 +672,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="ChequesSolicitud/Properties[Cheques]" />
+                        Member="ChequesSolicitud/Properties[ChequesSolicitados]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -857,7 +851,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="ChequesSolicitud/Properties[Cheques]" />
+                            Member="ChequesSolicitud/Properties[ChequesSolicitados]" />
                           <CallExpression
                             Target="AddNew" />
                         </ChainExpression>
@@ -871,7 +865,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="ChequesSolicitud/Properties[Cheques]" />
+                            Member="ChequesSolicitud/Properties[ChequesSolicitados]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -1409,7 +1403,7 @@
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
       <ScreenCollectionProperty
-        Name="Cheques"
+        Name="ChequesSolicitados"
         DisablePaging="True"
         DisableSearch="True"
         DisableSorting="True"
@@ -1417,7 +1411,7 @@
         PropertyType="CollectionView$Cheque">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
-            Name="ChequesQuery"
+            Name="ChequesSolicitadosQuery"
             ReturnType="Cheque*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
@@ -1433,7 +1427,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="ChequesSolicitud/Properties[Cheques]/Query">
+              Target="ChequesSolicitud/Properties[ChequesSolicitados]/Query">
               <ArgumentExpression
                 Parameter="CuentaId">
                 <ChainExpression>
@@ -1480,10 +1474,14 @@
       </ScreenCollectionProperty>
       <ScreenProperty
         Name="SecuenciaNroSolicitud"
+        ManualLoad="True"
         PropertyType="Secuencia" />
       <ScreenProperty
         Name="SolicitudNro"
         PropertyType=":Int32?" />
+      <ScreenProperty
+        Name="SolicitudNroStr"
+        PropertyType=":String?" />
       <ScreenProperty
         Name="FechaSolicitud"
         PropertyType=":Date">
