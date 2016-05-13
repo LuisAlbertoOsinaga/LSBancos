@@ -73,6 +73,25 @@ namespace LightSwitchApplication
                 SolicitudNroStr = SolicitudNro.ToString()
                                     .PadLeft(SecuenciaNroSolicitud.Digitos.GetValueOrDefault(), '0');
                 FechaSolicitud = DateTime.Now;
+
+                // Ultimo cheque
+                Cheque chequeUltimo = null;
+                if (Cuentas.SelectedItem != null)
+                {
+                    chequeUltimo = (from Cheque chq in this.DataWorkspace.ApplicationData.Cheques
+                              where chq.CuentaBanco.Id == Cuentas.SelectedItem.Id
+                              orderby chq.Nro
+                              select chq).LastOrDefault();
+                }
+                UltimoCheque = chequeUltimo != null ? chequeUltimo.Nro : "0";
+            }
+            else
+            {
+                SolicitudNro = ChequesSolicitados.Last().SolicitudNro;
+                SolicitudNroStr = SolicitudNro.ToString()
+                                    .PadLeft(SecuenciaNroSolicitud.Digitos.GetValueOrDefault(), '0');
+                FechaSolicitud = ChequesSolicitados.Last().FechaSolicitud.GetValueOrDefault();
+                UltimoCheque = ChequesSolicitados.Last().Nro;
             }
         }
 
@@ -92,32 +111,14 @@ namespace LightSwitchApplication
                 cheque.FechaSolicitud = FechaSolicitud;
                 cheque.Girador = Giradores.SelectedItem;
                 cheque.Solicitador = Application.Current.User.Name;
-                cheque.SolicitudNro = SolicitudNro.GetValueOrDefault();
+                cheque.SolicitudNro = int.Parse(SolicitudNroStr);
             }
-        }
-
-        partial void Cuentas_SelectionChanged()
-        {
-            // Ultimo cheque
-            Cheque cheque = null;
-            if (Cuentas.SelectedItem != null)
-            {
-                cheque = (from Cheque chq in this.DataWorkspace.ApplicationData.Cheques
-                          where chq.CuentaBanco.Id == Cuentas.SelectedItem.Id
-                          orderby chq.Nro
-                          select chq).LastOrDefault();
-            }
-            UltimoCheque = cheque != null ? cheque.Nro 
-                                            : "0".PadLeft(SecuenciaNroSolicitud.Digitos.GetValueOrDefault(), '0');
         }
 
         partial void ChequesSolicitados_SelectionChanged()
         {
             if (ChequesSolicitados.SelectedItem != null)
-            {
-                FechaSolicitud = ChequesSolicitados.SelectedItem.FechaSolicitud.GetValueOrDefault();
                 btnNroCheque.IsVisible = string.IsNullOrEmpty(ChequesSolicitados.SelectedItem.Nro);
-            }
             CantidadCheques = ChequesSolicitados.Count;
             Total = ChequesSolicitados.Sum(x => x.Monto);
         }
@@ -127,6 +128,8 @@ namespace LightSwitchApplication
             CuentaBanco ctaSelected = Cuentas.SelectedItem;
             for (int i = 0; i < ChequesSolicitados.Count; i++)
                 ChequesSolicitados.ElementAt(i).Estado = "A";    // A-Aprobado
+            SolicitudNro = ServicioSecuencia.PeekNro(this.DataWorkspace, SecuenciaNroSolicitud.Id);
+            SolicitudNroStr = SolicitudNro.ToString().PadLeft(SecuenciaNroSolicitud.Digitos.GetValueOrDefault(), '0');
             this.Save();
             this.ShowMessageBox("Envío realizado!", "CONFIRMACION", MessageBoxOption.Ok);
             this.Refresh();
@@ -150,7 +153,7 @@ namespace LightSwitchApplication
                 else
                     ChequesSolicitados.SelectedItem.Nro = UltimoCheque;
             }
-            else
+            else if (ChequesSolicitados.Count == 1)
             {
                 int siguienteCheque = 0;
                 if (int.TryParse(UltimoCheque, out siguienteCheque))
